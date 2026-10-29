@@ -204,9 +204,13 @@ let activeFounderId = 'luiz';
 
 function initLandoHeroScrollytelling() {
   const track = document.getElementById('hero-track');
+  const stageBox = document.getElementById('stage-3d-box');
   const canopyDome = document.getElementById('pillar-canopy-dome');
+  const visorGlare = document.getElementById('visor-glare');
+  const stageGlow = document.getElementById('stage-3d-glow');
   const stepperBtns = document.querySelectorAll('.stepper-pill-btn');
   const founderBtns = document.querySelectorAll('.founder-pill-btn');
+  const quickSwapBtn = document.getElementById('portrait-quick-swap-btn');
 
   // Manual Stepper Clicks
   stepperBtns.forEach((btn) => {
@@ -216,13 +220,21 @@ function initLandoHeroScrollytelling() {
     });
   });
 
-  // Manual Founder Clicks
+  // Dedicated Founder Switcher Buttons
   founderBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const fId = btn.getAttribute('data-founder');
       switchFounder(fId);
     });
   });
+
+  // Quick Swap Chip on Portrait
+  if (quickSwapBtn) {
+    quickSwapBtn.addEventListener('click', () => {
+      const nextFounder = activeFounderId === 'luiz' ? 'vitor' : 'luiz';
+      switchFounder(nextFounder);
+    });
+  }
 
   // GSAP ScrollTrigger Pinned Scrollytelling
   if (typeof ScrollTrigger !== 'undefined' && track) {
@@ -235,8 +247,10 @@ function initLandoHeroScrollytelling() {
         const p = self.progress;
         if (p < 0.33) {
           if (activePillarIndex !== 0) switchPillar(0, false);
+          if (activeFounderId !== 'luiz') switchFounder('luiz', false);
         } else if (p >= 0.33 && p < 0.66) {
           if (activePillarIndex !== 1) switchPillar(1, false);
+          if (activeFounderId !== 'vitor') switchFounder('vitor', false);
         } else {
           if (activePillarIndex !== 2) switchPillar(2, false);
         }
@@ -244,27 +258,61 @@ function initLandoHeroScrollytelling() {
     });
   }
 
-  // Mouse Parallax on Stage
-  const stage = document.querySelector('.hero-stage-inner');
-  if (stage) {
+  // 3D Tilt & Cursor Tracking with Smooth Lerp
+  if (stageBox) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
     window.addEventListener('mousemove', (e) => {
-      const x = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
-      const y = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+      mouseX = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+      mouseY = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+    });
+
+    function render3DStage() {
+      currentX += (mouseX - currentX) * 0.08;
+      currentY += (mouseY - currentY) * 0.08;
+
+      const rotY = currentX * 12;
+      const rotX = -currentY * 8;
+
+      stageBox.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
 
       if (canopyDome) {
-        canopyDome.style.transform = `translate3d(${x * 12}px, ${y * 8}px, 0) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+        canopyDome.style.transform = `translateZ(55px) translate3d(${currentX * 14}px, ${currentY * 8}px, 0) rotateY(${rotY * 0.6}deg) rotateX(${rotX * 0.6}deg)`;
       }
 
-      const portraits = document.querySelectorAll('.founder-portrait');
-      portraits.forEach((p) => {
-        p.style.transform = `translate3d(${x * 8}px, ${y * 4}px, 0)`;
-      });
-    });
+      if (visorGlare) {
+        visorGlare.style.transform = `translate3d(${-currentX * 35}px, ${-currentY * 15}px, 0) translateZ(10px)`;
+      }
+
+      if (stageGlow) {
+        stageGlow.style.transform = `translateZ(-50px) translate3d(${currentX * 25}px, ${currentY * 15}px, 0)`;
+      }
+
+      requestAnimationFrame(render3DStage);
+    }
+    requestAnimationFrame(render3DStage);
+
+    // Mobile Touch Swipe support
+    let touchStartX = 0;
+    stageBox.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    stageBox.addEventListener('touchend', (e) => {
+      const deltaX = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(deltaX) > 40) {
+        if (deltaX > 0) switchFounder('luiz');
+        else switchFounder('vitor');
+      }
+    }, { passive: true });
   }
 }
 
-function switchPillar(idx, animateFounder = true) {
-  if (activePillarIndex === idx && !animateFounder) return;
+function switchPillar(idx, syncFounder = true) {
+  if (activePillarIndex === idx && !syncFounder) return;
   activePillarIndex = idx;
   const pData = pillars[idx];
 
@@ -302,45 +350,71 @@ function switchPillar(idx, animateFounder = true) {
   if (trackName) trackName.textContent = pData.circuitName;
   if (trackStatus) trackStatus.textContent = pData.circuitStatus;
 
-  // Auto switch founder associated with pillar if desired
-  if (animateFounder) {
+  // Auto switch founder associated with pillar if requested
+  if (syncFounder) {
     if (pData.founder === 'luiz' || pData.founder === 'duo') {
-      switchFounder('luiz');
+      switchFounder('luiz', false);
     } else if (pData.founder === 'vitor') {
-      switchFounder('vitor');
+      switchFounder('vitor', false);
     }
   }
 }
 
-function switchFounder(founderId) {
+function switchFounder(founderId, syncPillar = true) {
+  if (activeFounderId === founderId && !syncPillar) return;
   activeFounderId = founderId;
 
   // Update Buttons
-  const founderBtns = document.querySelectorAll('.founder-pill-btn');
-  founderBtns.forEach((b) => {
-    if (b.getAttribute('data-founder') === founderId) {
-      b.classList.add('active');
-    } else {
-      b.classList.remove('active');
-    }
-  });
+  const btnLuiz = document.getElementById('btn-toggle-luiz');
+  const btnVitor = document.getElementById('btn-toggle-vitor');
 
-  // Crossfade Portraits
-  const pLuiz = document.getElementById('portrait-luiz');
-  const pVitor = document.getElementById('portrait-vitor');
-
-  if (pLuiz && pVitor) {
+  if (btnLuiz && btnVitor) {
     if (founderId === 'luiz') {
-      pLuiz.classList.add('is-active');
-      pLuiz.classList.remove('is-hidden');
-      pVitor.classList.remove('is-active');
-      pVitor.classList.add('is-hidden');
+      btnLuiz.className = 'founder-pill-btn active theme-lime';
+      btnVitor.className = 'founder-pill-btn';
     } else {
-      pVitor.classList.add('is-active');
-      pVitor.classList.remove('is-hidden');
-      pLuiz.classList.remove('is-active');
-      pLuiz.classList.add('is-hidden');
+      btnVitor.className = 'founder-pill-btn active theme-orange';
+      btnLuiz.className = 'founder-pill-btn';
     }
+  }
+
+  // Crossfade 3D Cards
+  const cardLuiz = document.getElementById('card-founder-luiz');
+  const cardVitor = document.getElementById('card-founder-vitor');
+  const stageGlow = document.getElementById('stage-3d-glow');
+  const quickSwapLabel = document.getElementById('quick-swap-label');
+
+  if (cardLuiz && cardVitor) {
+    if (founderId === 'luiz') {
+      cardLuiz.classList.add('is-active');
+      cardLuiz.classList.remove('is-hidden');
+      cardVitor.classList.remove('is-active');
+      cardVitor.classList.add('is-hidden');
+
+      if (stageGlow) stageGlow.className = 'stage-3d-glow glow-luiz';
+      if (quickSwapLabel) quickSwapLabel.textContent = 'VER VITOR (02)';
+
+      if (syncPillar && activePillarIndex !== 0) {
+        switchPillar(0, false);
+      }
+    } else {
+      cardVitor.classList.add('is-active');
+      cardVitor.classList.remove('is-hidden');
+      cardLuiz.classList.remove('is-active');
+      cardLuiz.classList.add('is-hidden');
+
+      if (stageGlow) stageGlow.className = 'stage-3d-glow glow-vitor';
+      if (quickSwapLabel) quickSwapLabel.textContent = 'VER LUIZ (01)';
+
+      if (syncPillar && activePillarIndex !== 1) {
+        switchPillar(1, false);
+      }
+    }
+  }
+
+  // Subtle audio tone
+  if (typeof playTone === 'function' && soundEnabled) {
+    playTone(founderId === 'luiz' ? 660 : 880, 0.05, 'sine', 0.04);
   }
 }
 

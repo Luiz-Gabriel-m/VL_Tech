@@ -126,13 +126,21 @@
         </div>
       </nav>
 
-      <!-- 2. CENTER HERO STAGE: FOUNDER PORTRAIT + FLOATING CANOPY DOME -->
+      <!-- 2. CENTER HERO STAGE: 3D MULTI-PLANE FOUNDER STAGE + CANOPY DOME -->
       <div class="hero-stage">
-        <div class="hero-stage-inner">
+        <div class="hero-stage-inner perspective-stage" id="stage-3d-box">
           
-          <!-- Floating Glassmorphic Canopy Dome (Replacing Helmets) -->
+          <!-- Dynamic Volumetric Spotlight Glow (Plane -50px Z) -->
+          <div class="stage-3d-glow glow-luiz" id="stage-3d-glow"></div>
+
+          <!-- Floating Glassmorphic Canopy Dome (Plane +55px Z) -->
           <div class="floating-canopy-dome dome-theme-web" id="pillar-canopy-dome">
             <div class="visor-reflection"></div>
+            <div class="visor-specular-glare" id="visor-glare"></div>
+
+            <!-- Micro Tech HUD tags -->
+            <span class="dome-hud-tag-left">SYS // 60FPS</span>
+            <span class="dome-hud-tag-right">VERCEL EDGE</span>
 
             <!-- Layer 1: Web Dev -->
             <div class="dome-content-layer active" data-layer-id="web">
@@ -143,7 +151,7 @@
               <span class="font-mona font-extrabold text-sm sm:text-base text-white text-center leading-tight">
                 Vercel Edge & GSAP 3D
               </span>
-              <span class="text-[9px] font-mono text-zinc-400 mt-1">&lt; 800ms Latency // 60 FPS</span>
+              <span class="text-[9px] font-mono text-zinc-400 mt-1">&lt; 0.8s Latency // 60 FPS</span>
             </div>
 
             <!-- Layer 2: Social & Reels -->
@@ -171,20 +179,40 @@
             </div>
           </div>
 
-          <!-- Cutout Portraits Container (Using assets/socios photos) -->
-          <div class="founder-cutout-box">
-            <!-- Luiz Gabriel (Co-founder 1) -->
-            <img id="portrait-luiz" 
-                 src="assets/socios/luiz-dark.jpg" 
-                 alt="Luiz Gabriel - Co-Founder VL Tech" 
-                 class="founder-portrait is-active">
+          <!-- Cutout Portraits 3D Multi-plane Container -->
+          <div class="founder-cutout-box" id="founder-cutout-container">
+            <div class="portrait-3d-wrapper" id="portrait-3d-wrapper">
+              
+              <!-- Luiz Gabriel 3D Card -->
+              <div class="founder-card-3d is-active" id="card-founder-luiz">
+                <img src="assets/socios/luiz-dark.jpg" 
+                     alt="Luiz Gabriel - Co-Founder & Tech Head" 
+                     class="founder-portrait-img">
+                <div class="founder-name-floating-tag">
+                  <span class="founder-tag-dot bg-[#d2ff00]"></span>
+                  <span>01 // LUIZ GABRIEL — HEAD OF TECH & AI</span>
+                </div>
+              </div>
 
-            <!-- Vitor (Co-founder 2) -->
-            <img id="portrait-vitor" 
-                 src="assets/socios/vitor-dark.jpg" 
-                 alt="Vitor - Co-Founder VL Tech" 
-                 class="founder-portrait is-hidden">
+              <!-- Vitor 3D Card -->
+              <div class="founder-card-3d is-hidden" id="card-founder-vitor">
+                <img src="assets/socios/vitor-dark.jpg" 
+                     alt="Vitor - Co-Founder & Creative Head" 
+                     class="founder-portrait-img">
+                <div class="founder-name-floating-tag">
+                  <span class="founder-tag-dot bg-[#ff6b00]"></span>
+                  <span>02 // VITOR — HEAD OF GROWTH & CREATIVE</span>
+                </div>
+              </div>
+
+            </div>
           </div>
+
+          <!-- Quick Interactive Swap Button on Portrait -->
+          <button id="portrait-quick-swap-btn" class="portrait-quick-swap-chip" aria-label="Alternar Co-Fundador">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            <span id="quick-swap-label">VER VITOR (02)</span>
+          </button>
 
         </div>
       </div>
@@ -219,10 +247,19 @@
           <button class="stepper-pill-btn" data-pillar-idx="2">03 AI Bot 24/7</button>
         </div>
 
-        <!-- Right: Co-Founder Switcher Pills -->
-        <div class="founder-toggle-card">
-          <button class="founder-pill-btn active" data-founder="luiz">01 Luiz G.</button>
-          <button class="founder-pill-btn" data-founder="vitor">02 Vitor</button>
+        <!-- Right: High-Visibility Dedicated Founder Switcher Slider -->
+        <div class="founder-toggle-card" id="founder-switcher-card">
+          <span class="founder-switcher-label">FOUNDER //</span>
+          <div class="founder-switcher-slider">
+            <button class="founder-pill-btn active theme-lime" data-founder="luiz" id="btn-toggle-luiz">
+              <span class="w-2 h-2 rounded-full bg-[#d2ff00] mr-1.5 shadow-[0_0_6px_#d2ff00]"></span>
+              <span>01 Luiz G.</span>
+            </button>
+            <button class="founder-pill-btn" data-founder="vitor" id="btn-toggle-vitor">
+              <span class="w-2 h-2 rounded-full bg-[#ff6b00] mr-1.5"></span>
+              <span>02 Vitor</span>
+            </button>
+          </div>
         </div>
 
       </div>
