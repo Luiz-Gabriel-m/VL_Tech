@@ -303,3 +303,57 @@ body {
 .animate-float-delayed {
   animation: subtle-float 6s ease-in-out infinite 3s;
 }
+
+/* Floating Bottom Bar */
+.floating-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  z-index: 45;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-bar.is-visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 6-Step Process Timeline */
+.process-line-connector {
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.6) 0%, rgba(255, 42, 84, 0.6) 50%, rgba(0, 240, 255, 0.6) 100%);
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .process-line-connector {
+    display: none;
+  }
+}
+
+/* Avatar Stack */
+.avatar-stack-item {
+  margin-left: -10px;
+  transition: transform 0.2s ease;
+}
+.avatar-stack-item:first-child {
+  margin-left: 0;
+}
+.avatar-stack-item:hover {
+  transform: translateY(-4px) scale(1.1);
+  z-index: 10;
+}
+
+/* Clean Accordion Transitions */
+details summary::-webkit-details-marker {
+  display: none;
+}
+

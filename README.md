@@ -1,16 +1,18 @@
-# 🚀 VL Tech — High-Performance Digital Agency
+# 🚀 VL Tech — High-Performance Digital Agency & Conversion Engineering
 
 <div align="center">
   <img src="assets/logo/vl-logo.jpg" alt="VL Tech Brand" width="180" style="border-radius: 20px; box-shadow: 0 10px 40px rgba(0, 240, 255, 0.3);" />
   <br><br>
-  <h3><strong>TRANSFORMAMOS TECNOLOGIA EM ESCALA</strong></h3>
-  <p><em>Agência de elite focada em desenvolvimento web cinematográfico, automações inteligentes com IA para WhatsApp e direção criativa no Instagram.</em></p>
+  <h3><strong>FAÇA SUA MARCA TER UM SITE QUE REALMENTE VENDE POR VOCÊ</strong></h3>
+  <p><em>Engenharia reversa e design de alta conversão: do primeiro clique à decisão do cliente.</em></p>
 
   <p>
     <a href="#-visão-geral">Visão Geral</a> •
+    <a href="#-diferenciais-de-engenharia">Diferenciais</a> •
     <a href="#-os-fundadores">Fundadores</a> •
+    <a href="#-workflow-em-6-passos">Metodologia</a> •
     <a href="#-pilares-de-serviços">Serviços</a> •
-    <a href="#-stack-tecnológica">Stack</a> •
+    <a href="#-projetos-reais">Projetos</a> •
     <a href="#-como-executar-localmente">Executar</a> •
     <a href="#-deploy-na-vercel">Deploy Vercel</a>
   </p>
@@ -20,11 +22,22 @@
 
 ## ⚡ Visão Geral
 
-A **VL Tech** é uma agência de engenharia digital de alto impacto liderada por dois co-fundadores especialistas. O projeto foi desenhado sob a estética e dinamismo dos sites de showcase da **Fórmula 1**:
-- **Scrollytelling & Fullscreen Pinning**: A seção dos sócios e serviços transiciona suavemente conforme a rolagem do usuário através do **GSAP ScrollTrigger**.
-- **Dynamic Visual Swapping**: Alternância em tempo real da iluminação ambiente (*glow* ciano elétrico vs carmesim neon), badges de telemetria e retratos em alta resolução.
-- **Glassmorphism Líquido**: Fundos escuros profundos (`#07070a`), bordas sutis com brilho neon e desfoque óptico (`backdrop-blur-xl`).
+A **VL Tech** combina a engenharia reversa de alta conversão dos melhores portfólios globais (como *Jorge Web Pro*) com o dinamismo cinematográfico dos sites de showcase da **Fórmula 1**:
+- **Headline de Alto Impacto**: *"Faça sua marca ter um site que realmente vende por você."*
+- **Psicologia de Conversão ("Pense Nisso")**: Demonstração visual de como a percepção de valor e credibilidade de um negócio dependem diretamente de um design exclusivo de alto padrão.
+- **Scrollytelling & Fullscreen Pinning**: A seção dos co-fundadores e serviços transiciona suavemente conforme a rolagem do usuário através do **GSAP ScrollTrigger**.
+- **Dynamic Visual Swapping**: Alternância dinâmica da iluminação ambiente (*glow* ciano elétrico vs carmesim neon), badges de telemetria e retratos em alta resolução.
 - **Simulador Interativo de IA**: Chatbot funcional incorporado com respostas em tempo real simulando a inteligência conversacional no WhatsApp.
+- **Floating Bottom Bar**: Barra flutuante com chamada de ação rápida e direta para solicitação de orçamento.
+
+---
+
+## 🛡️ Diferenciais de Engenharia (Zero Templates)
+
+1. **Seu site é feito do zero:** Não utilizamos templates prontos ou construtores pesados. Cada projeto nasce da essência da sua marca e do seu modelo comercial.
+2. **Um site seu, apenas seu:** Identidade visual e design system proprietário para criar uma presença impossível de ser confundida com concorrentes.
+3. **Estratégia antes de criar:** Estudo aprofundado do seu nicho, neuromarketing e copywriting focado em conversão.
+4. **Inteligência Artificial Integrada:** Conexão oficial à WhatsApp Cloud API para atendimento e qualificação 24/7 sem atrito.
 
 ---
 
@@ -37,7 +50,7 @@ A **VL Tech** é uma agência de engenharia digital de alto impacto liderada por
         <img src="assets/socios/luiz-dark.jpg" width="220" style="border-radius: 16px; border: 2px solid #00f0ff;" /><br>
         <strong>Luiz Gabriel</strong><br>
         <em>Co-Founder & Head of Tech & AI Architecture</em><br>
-        <code>GSAP • WebGL • Vercel Edge • WhatsApp Cloud API</code>
+        <code>GSAP 3 • WebGL • Vercel Edge • WhatsApp Cloud API</code>
       </td>
       <td align="center" width="50%">
         <img src="assets/socios/vitor-dark.jpg" width="220" style="border-radius: 16px; border: 2px solid #ff2a54;" /><br>
@@ -51,21 +64,32 @@ A **VL Tech** é uma agência de engenharia digital de alto impacto liderada por
 
 ---
 
-## 🛠️ Pilares de Serviços (The 3 Core Pillars)
+## 🔄 Workflow em 6 Passos (Do Contato à Entrega)
+
+1. **01 // Briefing**: Alinhamento estratégico dos seus objetivos comerciais, público e metas.
+2. **02 // Imersão**: Estruturação da arquitetura de informação, tom de voz e referências de alto padrão.
+3. **03 // Desenvolvimento do Zero**: Construção do código puro e design customizado com GSAP e Tailwind.
+4. **04 // Apresentação**: Primeira versão funcional apresentada para feedback e ajustes finos.
+5. **05 // Otimização Extrema**: Otimização de Core Web Vitals (< 800ms), SEO semântico e integrações de IA.
+6. **06 // Entrega & Publicação**: Publicação global na Vercel Edge com SSL e domínio próprio.
+
+---
+
+## 🛠️ Pilares de Serviços
 
 1. **High-Performance Web Development & Landing Pages**
-   - Código 100% sob medida, sem construtores lentos ou plugins pesados.
+   - Código sob medida, sem construtores lentos ou plugins pesados.
    - Animações fluidas a 60 FPS com GSAP 3 e WebGL.
    - Deploy com latência mínima no Vercel Edge Network (< 800ms).
 
 2. **Instagram Content Creation & Gestão Estratégica**
    - Produção e edição cinematográfica de Reels no padrão documentário/publicitário.
-   - Design System proprietário para alinhamento e autoridade no feed.
+   - Design System proprietário para autoridade máxima no feed.
    - Roteiros e ganchos neuro-persuasivos para converter seguidores em clientes.
 
 3. **Automated Support & AI Chatbots (WhatsApp & CRM)**
    - Agentes de Inteligência Artificial autônomos operando 24 horas por dia.
-   - Conexão oficial à WhatsApp Cloud API (sem risco de banimentos).
+   - Conexão oficial à WhatsApp Cloud API (sem risco de bloqueios).
    - Treinamento customizado com a base de conhecimento da empresa e agendamento instantâneo.
 
 ---
@@ -95,10 +119,10 @@ VLTech/
 │       ├── vitor-dark.jpg
 │       ├── luiz-studio.jpg
 │       └── vitor-studio.jpg
-├── index.html        # Estrutura completa e semântica com Tailwind e GSAP
-├── styles.css        # Efeitos de vidro, neon, HUD brackets e animações
-├── main.js           # Lógica do scrollytelling, canvas, chatbot e áudio
-├── vercel.json       # Otimização de cache e segurança para deploy Vercel
+├── index.html        # Estrutura completa, semântica e responsiva com Tailwind e GSAP
+├── styles.css        # Efeitos de vidro, neon, HUD brackets, timeline e barra flutuante
+├── main.js           # Lógica do scrollytelling, canvas, chatbot, timeline e áudio
+├── vercel.json       # Otimização de cache e headers de segurança para deploy Vercel
 └── README.md         # Documentação completa
 ```
 
@@ -109,9 +133,7 @@ VLTech/
 Como o projeto é construído em padrões web modernos e estáticos:
 
 1. **Abrir diretamente**: Basta dar um duplo-clique no arquivo `index.html` em seu navegador favorito (Chrome, Edge, Firefox, Safari).
-2. **Via Live Server (VS Code / IDE)**:
-   - Clique com o botão direito no `index.html` e selecione **"Open with Live Server"**.
-3. **Via Navegador**:
+2. **Via Navegador**:
    ```text
    file:///C:/Users/luiz.moraes/Desktop/Projetos/VLTech/index.html
    ```
@@ -128,15 +150,6 @@ O projeto está 100% preparado para ser colocado em produção na **Vercel** com
 3. Selecione o repositório `Luiz-Gabriel-m/VL_Tech`.
 4. Mantenha as configurações padrão (Framework Preset: **Other** / Root Directory: `./`).
 5. Clique em **"Deploy"**. Seu site estará no ar globalmente com SSL e CDN em menos de 1 minuto!
-
-### Método 2: Via Vercel CLI
-```bash
-# Instalar a CLI (caso tenha node):
-npm i -g vercel
-
-# Na pasta do projeto:
-vercel --prod
-```
 
 ---
 

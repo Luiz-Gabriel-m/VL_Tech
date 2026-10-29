@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DCardTilt();
   initCaseModals();
   initMobileMenu();
+  initFloatingBar();
   initLucide();
 });
 
@@ -835,3 +836,20 @@ function initMobileMenu() {
     link.addEventListener('click', () => toggle(false));
   });
 }
+
+/* ==========================================================================
+   12. FLOATING BOTTOM CTA BAR
+   ========================================================================== */
+function initFloatingBar() {
+  const bar = document.getElementById('floating-cta-bar');
+  if (!bar) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 450) {
+      bar.classList.add('is-visible');
+    } else {
+      bar.classList.remove('is-visible');
+    }
+  });
+}
+
