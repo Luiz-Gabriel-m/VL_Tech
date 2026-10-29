@@ -1,47 +1,63 @@
 /* ==========================================================================
-   VL TECH - HIGH-PERFORMANCE CINEMATIC AGENCY STYLES
-   Inspired by F1 Telemetry, Dark Cyber Aesthetics & Liquid Glassmorphism
+   VL TECH - SCROLLYTELLING HERO & AGENCY DESIGN SYSTEM
+   Inspired by Lando Norris Showcase Architecture & Modern F1 Engineering
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Syne:wght@700;800&display=swap');
 
 :root {
-  --bg-dark: #07070a;
-  --bg-card: rgba(18, 18, 24, 0.7);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(255, 255, 255, 0.2);
+  /* Exact Design Tokens & Motion Specs */
+  --color--black: #111112;
+  --color--dark-green: #282c20;
+  --color--white: #f4f4ed;
+  --color--cream: #efefe5;
+  --color--lime: #d2ff00;
+  --color--lime-off: #b2c73a;
+  --color--orange: #ff6b00;
+  --font-family: 'Mona Sans', 'Mona Sans Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+  --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
+  --duration-default: 0.75s;
+
+  /* Complementary tokens */
+  --bg-dark: var(--color--black);
+  --bg-card: rgba(22, 22, 24, 0.82);
+  --border-glass: rgba(244, 244, 237, 0.1);
+  --border-glass-hover: rgba(210, 255, 0, 0.5);
   --neon-cyan: #00f0ff;
   --neon-red: #ff2a54;
-  --neon-purple: #9d4edd;
-  --accent-glow: rgba(0, 240, 255, 0.15);
+  --neon-lime: var(--color--lime);
 }
 
 /* Base resets & typography */
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg-dark);
-  color: #f1f5f9;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color--black);
+  color: var(--color--white);
+  font-family: var(--font-family);
   overflow-x: hidden;
 }
 
 body {
   overflow-x: hidden;
-  background-color: #07070a;
-  selection-background-color: var(--neon-cyan);
-  selection-color: #000;
+  background-color: var(--color--black);
+  color: var(--color--white);
+  font-family: var(--font-family);
+  selection-background-color: var(--color--lime);
+  selection-color: var(--color--black);
 }
 
 ::selection {
-  background: rgba(0, 240, 255, 0.3);
-  color: #ffffff;
+  background: var(--color--lime);
+  color: var(--color--black);
 }
 
-/* Font utilities */
+/* Font helpers */
+.font-mona {
+  font-family: var(--font-family);
+}
 .font-syne {
   font-family: 'Syne', sans-serif;
 }
-
 .font-mono-tech {
   font-family: 'JetBrains Mono', monospace;
 }
@@ -51,119 +67,502 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090d;
+  background: var(--color--black);
 }
 ::-webkit-scrollbar-thumb {
-  background: #22222d;
+  background: #262629;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-cyan);
+  background: var(--color--lime);
 }
 
-/* Ambient glow & glassmorphism */
-.glass-panel {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glass);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+/* ==========================================================================
+   LANDO NORRIS SHOWCASE HERO ARCHITECTURE
+   ========================================================================== */
+
+/* The Sticky Track Container: provides the scroll length (350vh) */
+.sticky-track.home-hero {
+  position: relative;
+  width: 100%;
+  height: 350vh;
+  background-color: var(--color--black);
 }
 
-.glass-panel-elevated {
-  background: linear-gradient(135deg, rgba(25, 25, 35, 0.7) 0%, rgba(12, 12, 18, 0.8) 100%);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.glass-card-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-card-hover:hover {
-  border-color: rgba(0, 240, 255, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px -10px rgba(0, 240, 255, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-}
-
-/* F1 Telemetry Grid lines */
-.cyber-grid {
-  background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-}
-
-.cyber-grid-dense {
-  background-size: 24px 24px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-}
-
-/* Neon Text & Border Glows */
-.text-glow-cyan {
-  text-shadow: 0 0 15px rgba(0, 240, 255, 0.6), 0 0 30px rgba(0, 240, 255, 0.2);
-}
-
-.text-glow-red {
-  text-shadow: 0 0 15px rgba(255, 42, 84, 0.6), 0 0 30px rgba(255, 42, 84, 0.2);
-}
-
-.glow-cyan-box {
-  box-shadow: 0 0 30px -5px rgba(0, 240, 255, 0.35);
-}
-
-.glow-red-box {
-  box-shadow: 0 0 30px -5px rgba(255, 42, 84, 0.35);
-}
-
-/* Dynamic Ambient Glow Field */
-#dynamic-glow {
-  transition: background 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glow-mode-luiz {
-  background: radial-gradient(circle at 65% 45%, rgba(0, 240, 255, 0.18) 0%, rgba(37, 99, 235, 0.12) 40%, transparent 70%);
-}
-
-.glow-mode-vitor {
-  background: radial-gradient(circle at 65% 45%, rgba(255, 42, 84, 0.2) 0%, rgba(147, 51, 234, 0.14) 40%, transparent 70%);
-}
-
-/* Hologram Scanning Line Animation */
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
-}
-
-.scanline-effect {
-  position: absolute;
+/* The Sticky Item: locked to viewport for scrollytelling */
+.sticky-item.home-hero {
+  position: sticky;
   top: 0;
   left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.7), transparent);
-  animation: scanline 4s linear infinite;
+  width: 100%;
+  height: 100svh;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--color--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .sticky-item.home-hero {
+    padding: 1rem 1.25rem;
+  }
+}
+
+/* Three.js WebGL Canvas */
+.gl-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
   pointer-events: none;
 }
 
-/* Pulse animation for live status */
-@keyframes radar-ping {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.6); opacity: 0; }
-  100% { transform: scale(0.95); opacity: 0; }
+/* Fluid SVG Topographic Background */
+.contour-lines-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.45;
+  transition: opacity var(--duration-default) var(--cubic-default);
 }
 
-.radar-dot::after {
-  content: '';
-  position: absolute;
-  inset: -3px;
+/* Hero Top Navigation Bar */
+.hero-nav {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Stacked Brand Logo (Lando Norris style) */
+.brand-stacked-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.88;
+  font-family: var(--font-family);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color--white);
+  transition: opacity 0.2s ease;
+}
+
+.brand-stacked-logo:hover {
+  opacity: 0.85;
+}
+
+.brand-stacked-logo .dot-lime {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color--lime);
+  margin-left: 4px;
+  box-shadow: 0 0 10px var(--color--lime);
+}
+
+/* Lime Action Button (Replicating the Lando "STORE" pill button) */
+.btn-lime-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color--lime);
+  color: var(--color--black);
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.75rem 1.4rem;
   border-radius: 9999px;
-  background: inherit;
-  animation: radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  box-shadow: 0 4px 20px rgba(210, 255, 0, 0.35);
+  transition: transform var(--duration-default) var(--cubic-default),
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.btn-lime-pill:hover {
+  transform: scale(1.04);
+  background-color: #e0ff33;
+  box-shadow: 0 6px 30px rgba(210, 255, 0, 0.5);
+}
+
+.btn-menu-square {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: rgba(244, 244, 237, 0.08);
+  border: 1px solid rgba(244, 244, 237, 0.15);
+  color: var(--color--white);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-menu-square:hover {
+  background-color: rgba(244, 244, 237, 0.16);
+  border-color: rgba(244, 244, 237, 0.3);
+}
+
+/* ==========================================================================
+   CENTER HERO STAGE: FOUNDER CUTOUT + FLOATING CANOPY DOME
+   ========================================================================== */
+.hero-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-stage-inner {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  height: 82svh;
+  height: 82vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .hero-stage-inner {
+    max-width: 90vw;
+    height: 75svh;
+  }
+}
+
+/* Founder Cutout Container */
+.founder-cutout-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: visible;
+  mask-image: linear-gradient(to top, transparent 0%, black 14%, black 100%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 14%, black 100%);
+}
+
+.founder-portrait {
+  position: absolute;
+  bottom: 0;
+  width: auto;
+  max-width: 100%;
+  height: 82%;
+  object-fit: contain;
+  object-position: bottom center;
+  transition: opacity 0.6s var(--cubic-default), transform 0.6s var(--cubic-default);
+  filter: drop-shadow(0 0 35px rgba(0, 0, 0, 0.8));
+}
+
+.founder-portrait.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  z-index: 2;
+}
+
+.founder-portrait.is-hidden {
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Floating Glassmorphic Canopy Dome (Replacing Helmets) */
+.floating-canopy-dome {
+  position: absolute;
+  top: 6%;
+  width: 310px;
+  height: 175px;
+  z-index: 25;
+  border-radius: 140px 140px 30px 30px;
+  background: radial-gradient(circle at 50% 30%, rgba(244, 244, 237, 0.18) 0%, rgba(17, 17, 18, 0.85) 80%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(244, 244, 237, 0.3);
+  box-shadow: 
+    0 -8px 40px rgba(210, 255, 0, 0.25),
+    inset 0 2px 10px rgba(255, 255, 255, 0.4),
+    inset 0 -8px 25px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transform-origin: center bottom;
+  transition: all var(--duration-default) var(--cubic-default);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .floating-canopy-dome {
+    top: 8%;
+    width: 250px;
+    height: 140px;
+  }
+}
+
+.floating-canopy-dome:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: var(--color--lime);
+  box-shadow: 0 -12px 50px rgba(210, 255, 0, 0.45);
+}
+
+/* Dome Pattern Themes */
+.dome-theme-web {
+  border-color: rgba(210, 255, 0, 0.45);
+  box-shadow: 0 -8px 40px rgba(210, 255, 0, 0.3);
+}
+
+.dome-theme-social {
+  border-color: rgba(255, 107, 0, 0.45);
+  box-shadow: 0 -8px 40px rgba(255, 107, 0, 0.3);
+}
+
+.dome-theme-ai {
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 0 -8px 40px rgba(0, 240, 255, 0.3);
+}
+
+/* Visor Reflection Highlight */
+.visor-reflection {
+  position: absolute;
+  top: 10px;
+  left: 15%;
+  right: 15%;
+  height: 25px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Dome Content Layers */
+.dome-content-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem 0.5rem;
+  transition: opacity 0.5s var(--cubic-default), transform 0.5s var(--cubic-default);
+}
+
+.dome-content-layer.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.dome-content-layer.inactive {
+  opacity: 0;
+  transform: scale(0.92);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   BOTTOM TELEMETRY CARD (Lando Norris "NEXT RACE" Replication)
+   ========================================================================== */
+.telemetry-track-card {
+  position: relative;
+  z-index: 30;
+  width: 175px;
+  border: 1px solid rgba(244, 244, 237, 0.2);
+  border-radius: 14px 28px 14px 14px;
+  background-color: rgba(17, 17, 18, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 1rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 640px) {
+  .telemetry-track-card {
+    display: none;
+  }
+}
+
+.track-label-top {
+  font-family: var(--font-family);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color--cream);
+  opacity: 0.85;
+}
+
+.track-circuit-box {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.track-circuit-svg {
+  width: 90%;
+  height: 90%;
+  overflow: visible;
+}
+
+.track-path-line {
+  stroke: rgba(244, 244, 237, 0.25);
+  stroke-width: 2;
+  fill: none;
+}
+
+.track-racing-dot {
+  fill: var(--color--lime);
+  filter: drop-shadow(0 0 6px var(--color--lime));
+}
+
+.track-details-bottom {
+  border-top: 1px solid rgba(244, 244, 237, 0.1);
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.track-name-main {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color--white);
+}
+
+.track-laurel-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  color: var(--color--lime);
+  margin-top: 0.2rem;
+}
+
+/* Bottom Center Stepper & Switchers */
+.hero-bottom-controls {
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.pillar-stepper-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: rgba(17, 17, 18, 0.7);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(244, 244, 237, 0.15);
+  padding: 0.35rem;
+  border-radius: 9999px;
+}
+
+.stepper-pill-btn {
+  font-family: var(--font-family);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  color: rgba(244, 244, 237, 0.7);
+  transition: all 0.25s ease;
+}
+
+.stepper-pill-btn:hover {
+  color: var(--color--white);
+  background-color: rgba(244, 244, 237, 0.1);
+}
+
+.stepper-pill-btn.active {
+  background-color: var(--color--lime);
+  color: var(--color--black);
+  box-shadow: 0 0 15px rgba(210, 255, 0, 0.4);
+}
+
+/* Founder Toggle Pills (Bottom Right) */
+.founder-toggle-card {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(17, 17, 18, 0.7);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(244, 244, 237, 0.15);
+  padding: 0.35rem;
+  border-radius: 9999px;
+}
+
+.founder-pill-btn {
+  font-family: var(--font-family);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  color: rgba(244, 244, 237, 0.7);
+  transition: all 0.25s ease;
+}
+
+.founder-pill-btn:hover {
+  color: var(--color--white);
+  background-color: rgba(244, 244, 237, 0.1);
+}
+
+.founder-pill-btn.active {
+  background-color: var(--color--white);
+  color: var(--color--black);
+}
+
+/* ==========================================================================
+   GLOBAL DESIGN UTILITIES & GLASSMORPHISM
+   ========================================================================== */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(244, 244, 237, 0.04) 0%, rgba(244, 244, 237, 0.01) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+}
+
+.glass-panel-elevated {
+  background: linear-gradient(135deg, rgba(26, 26, 28, 0.8) 0%, rgba(17, 17, 18, 0.9) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(244, 244, 237, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 /* Custom Interactive Cursor */
@@ -173,12 +572,11 @@ body {
   left: 0;
   width: 10px;
   height: 10px;
-  background: var(--neon-cyan);
+  background: var(--color--lime);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
   mix-blend-mode: exclusion;
 }
 
@@ -188,7 +586,7 @@ body {
   left: 0;
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(0, 240, 255, 0.4);
+  border: 1px solid rgba(210, 255, 0, 0.5);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
@@ -203,115 +601,14 @@ body {
   }
 }
 
-/* Founder Portrait HUD Frame */
-.hud-corner-tl {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid var(--neon-cyan);
-  border-left: 2px solid var(--neon-cyan);
-}
-.hud-corner-tr {
-  top: -1px;
-  right: -1px;
-  border-top: 2px solid var(--neon-cyan);
-  border-right: 2px solid var(--neon-cyan);
-}
-.hud-corner-bl {
-  bottom: -1px;
-  left: -1px;
-  border-bottom: 2px solid var(--neon-cyan);
-  border-left: 2px solid var(--neon-cyan);
-}
-.hud-corner-br {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid var(--neon-cyan);
-  border-right: 2px solid var(--neon-cyan);
-}
-
-/* Red accents for Vitor mode */
-.theme-red .hud-corner-tl,
-.theme-red .hud-corner-tr,
-.theme-red .hud-corner-bl,
-.theme-red .hud-corner-br {
-  border-color: var(--neon-red);
-}
-
-/* Gradient text animations */
-.gradient-text-silver {
-  background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gradient-text-cyan {
-  background: linear-gradient(135deg, #FFFFFF 20%, #00f0ff 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gradient-text-red {
-  background: linear-gradient(135deg, #FFFFFF 20%, #ff2a54 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Button pulse glow */
-.btn-primary-glow {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.btn-primary-glow::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.15) 50%,
-    transparent 80%
-  );
-  transform: rotate(35deg) translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.btn-primary-glow:hover::before {
-  transform: rotate(35deg) translateX(100%);
-}
-
-/* Interactive 3D Card tilt container */
-.card-tilt {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-/* Floating animation */
-@keyframes subtle-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-.animate-float {
-  animation: subtle-float 6s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: subtle-float 6s ease-in-out infinite 3s;
-}
-
-/* Floating Bottom Bar */
+/* Floating Bottom CTA Bar */
 .floating-bar {
   position: fixed;
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%) translateY(120px);
   z-index: 45;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  transition: transform 0.4s var(--cubic-default), opacity 0.4s ease;
   opacity: 0;
   pointer-events: none;
 }
@@ -320,23 +617,6 @@ body {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
   pointer-events: auto;
-}
-
-/* 6-Step Process Timeline */
-.process-line-connector {
-  position: absolute;
-  top: 40px;
-  left: 5%;
-  right: 5%;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(0, 240, 255, 0.6) 0%, rgba(255, 42, 84, 0.6) 50%, rgba(0, 240, 255, 0.6) 100%);
-  z-index: 0;
-}
-
-@media (max-width: 768px) {
-  .process-line-connector {
-    display: none;
-  }
 }
 
 /* Avatar Stack */
@@ -352,8 +632,28 @@ body {
   z-index: 10;
 }
 
-/* Clean Accordion Transitions */
+/* Details summary */
 details summary::-webkit-details-marker {
   display: none;
 }
 
+/* Neon Glows */
+.text-glow-lime {
+  text-shadow: 0 0 15px rgba(210, 255, 0, 0.6), 0 0 30px rgba(210, 255, 0, 0.2);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.6), 0 0 30px rgba(0, 240, 255, 0.2);
+}
+
+.gradient-text-lime {
+  background: linear-gradient(135deg, #FFFFFF 20%, #d2ff00 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-silver {
+  background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
