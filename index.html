@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VL Tech | Alta Performance Web, Gestão Estratégica & Automação com IA</title>
+  <meta name="description" content="Agência de elite focada em desenvolvimento web cinematográfico de alta performance, automações inteligentes com IA para WhatsApp e criação estratégica de conteúdo no Instagram.">
+  <meta name="keywords" content="VL Tech, desenvolvimento web, landing pages alta conversão, automação whatsapp, chatbot inteligência artificial, gestão instagram, reels cinematográficos">
+  <meta name="author" content="VL Tech">
+  
+  <!-- Open Graph / Meta Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VL Tech | Transformamos Tecnologia em Escala">
+  <meta property="og:description" content="Engenharia digital de alta precisão, inteligência artificial autônoma e estratégias de conteúdo cinematográfico.">
+  <meta property="og:image" content="assets/logo/vl-logo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VL Tech | Alta Performance Web & IA">
+  <meta name="twitter:description" content="Transformamos Tecnologia em Escala. Conheça nossos fundadores e serviços de ponta.">
+  <meta name="twitter:image" content="assets/logo/vl-logo.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo/vl-logo.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#07070a',
+              card: '#111117',
+              cyan: '#00f0ff',
+              red: '#ff2a54',
+              blue: '#2563eb',
+              slate: '#1e293b'
+            }
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#07070a] text-zinc-100 selection:bg-cyan-500/30 selection:text-white antialiased overflow-x-hidden relative">
+
+  <!-- Custom Glowing Cursor (Desktop) -->
+  <div id="cursor-dot" class="custom-cursor"></div>
+  <div id="cursor-follower" class="custom-cursor-follower"></div>
+
+  <!-- Dynamic Global Ambient Glow Field -->
+  <div id="dynamic-glow" class="fixed inset-0 pointer-events-none glow-mode-luiz z-0 opacity-70"></div>
+
+  <!-- ========================================================================
+       1. FIXED HEADER / NAVIGATION BAR
+       ======================================================================== -->
+  <header id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3.5 px-4 sm:px-8 border-b border-white/5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo Branding -->
+      <a href="#hero" class="flex items-center space-x-3 group interactive-hover">
+        <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-white/15 bg-black/60 p-0.5 shadow-lg group-hover:border-cyan-400/60 transition-colors">
+          <img src="assets/logo/vl-logo.jpg" alt="VL Tech Logo" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300">
+          <span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-cyan-400 rounded-full border-2 border-black"></span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-syne font-extrabold text-lg sm:text-xl tracking-tight text-white group-hover:text-cyan-300 transition-colors flex items-center">
+            VL TECH <span class="w-1.5 h-1.5 rounded-full bg-rose-500 ml-1.5 animate-pulse"></span>
+          </span>
+          <span class="font-mono text-[9px] tracking-widest text-zinc-400 uppercase">Engineering & Scale</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 bg-zinc-950/60 backdrop-blur-xl border border-white/10 px-4 py-1.5 rounded-full shadow-inner">
+        <a href="#hero" class="px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:text-cyan-400 transition-colors rounded-full hover:bg-white/5">Início</a>
+        <a href="#fundadores" class="px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:text-cyan-400 transition-colors rounded-full hover:bg-white/5">Fundadores</a>
+        <a href="#servicos" class="px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:text-cyan-400 transition-colors rounded-full hover:bg-white/5">Serviços</a>
+        <a href="#impacto" class="px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:text-cyan-400 transition-colors rounded-full hover:bg-white/5">Métricas</a>
+        <a href="#cases" class="px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:text-cyan-400 transition-colors rounded-full hover:bg-white/5">Cases</a>
+        <a href="#metodo" class="px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:text-cyan-400 transition-colors rounded-full hover:bg-white/5">Método</a>
+        <a href="#faq" class="px-3.5 py-1.5 text-xs font-medium text-zinc-300 hover:text-cyan-400 transition-colors rounded-full hover:bg-white/5">FAQ</a>
+      </nav>
+
+      <!-- Header Actions: Audio Synthesizer Toggle + WhatsApp CTA -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <!-- Audio Synth Toggle -->
+        <button id="sound-toggle" class="flex items-center space-x-1.5 px-3 py-1.5 text-xs font-mono rounded-lg border border-white/10 bg-zinc-900/60 text-zinc-400 hover:text-cyan-300 hover:border-cyan-500/40 transition-all">
+          <i id="sound-icon" data-lucide="volume-x" class="w-3.5 h-3.5"></i>
+          <span id="sound-status" class="text-[10px]">FX OFF</span>
+        </button>
+
+        <!-- Direct WhatsApp CTA -->
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20VL%20Tech!%20Gostaria%20de%20entender%20como%20voc%C3%AAs%20podem%20acelerar%20meu%20neg%C3%B3cio." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-primary-glow flex items-center space-x-2 px-4 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:scale-105 transition-all">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Falar no WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="flex items-center space-x-2 md:hidden">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20VL%20Tech!%20Gostaria%20de%20entender%20como%20voc%C3%AAs%20podem%20acelerar%20meu%20neg%C3%B3cio." 
+           target="_blank" 
+           class="p-2 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+        </a>
+        <button id="mobile-menu-btn" class="p-2 rounded-lg border border-white/10 bg-zinc-900 text-zinc-300 hover:text-white" aria-label="Abrir menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 bg-zinc-950/95 backdrop-blur-2xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col p-6">
+    <div class="flex items-center justify-between pb-6 border-b border-white/10">
+      <div class="flex items-center space-x-2">
+        <img src="assets/logo/vl-logo.jpg" alt="VL Tech" class="w-8 h-8 rounded-lg object-cover">
+        <span class="font-syne font-bold text-lg text-white">VL TECH</span>
+      </div>
+      <button id="mobile-menu-close" class="p-2 text-zinc-400 hover:text-white" aria-label="Fechar menu">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-4 py-8">
+      <a href="#hero" class="mobile-nav-link text-lg font-medium text-zinc-200 hover:text-cyan-400">Início</a>
+      <a href="#fundadores" class="mobile-nav-link text-lg font-medium text-zinc-200 hover:text-cyan-400">Fundadores</a>
+      <a href="#servicos" class="mobile-nav-link text-lg font-medium text-zinc-200 hover:text-cyan-400">Serviços</a>
+      <a href="#impacto" class="mobile-nav-link text-lg font-medium text-zinc-200 hover:text-cyan-400">Métricas & Impacto</a>
+      <a href="#cases" class="mobile-nav-link text-lg font-medium text-zinc-200 hover:text-cyan-400">Cases de Sucesso</a>
+      <a href="#metodo" class="mobile-nav-link text-lg font-medium text-zinc-200 hover:text-cyan-400">Método VL Tech</a>
+      <a href="#faq" class="mobile-nav-link text-lg font-medium text-zinc-200 hover:text-cyan-400">Perguntas Frequentes</a>
+    </div>
+    <div class="mt-auto pt-6 border-t border-white/10 flex flex-col space-y-3">
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20VL%20Tech!%20Gostaria%20de%20entender%20como%20voc%C3%AAs%20podem%20acelerar%20meu%20neg%C3%B3cio." 
+         target="_blank" 
+         class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold flex items-center justify-center space-x-2 shadow-lg">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>Conversar no WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. CINEMATIC HERO SECTION
+       ======================================================================== -->
+  <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center pt-28 pb-16 px-4 sm:px-8 cyber-grid overflow-hidden">
+    
+    <!-- Interactive Canvas Layer -->
+    <canvas id="hero-canvas" class="absolute inset-0 pointer-events-auto z-0"></canvas>
+
+    <!-- Top Telemetry Tag -->
+    <div id="hero-badge" class="relative z-10 mb-6 inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 relative radar-dot"></span>
+      <span class="font-mono text-[11px] uppercase tracking-wider text-zinc-300">
+        STATUS: <span class="text-cyan-400 font-semibold">DISPONÍVEL PARA NOVOS PROJETOS</span> // 2026
+      </span>
+    </div>
+
+    <!-- Massive Typography Headline -->
+    <div class="relative z-10 max-w-5xl mx-auto text-center px-2">
+      <h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] sm:leading-[1.02] uppercase mb-6">
+        <span class="hero-headline-line block gradient-text-silver">TRANSFORMAMOS</span>
+        <span class="hero-headline-line block gradient-text-cyan text-glow-cyan">TECNOLOGIA</span>
+        <span class="hero-headline-line block text-white flex items-center justify-center flex-wrap gap-x-4">
+          EM ESCALA<span class="text-rose-500">.</span>
+        </span>
+      </h1>
+
+      <!-- Subtitle Description -->
+      <p id="hero-description" class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-zinc-300 font-normal leading-relaxed mb-10">
+        A agência de tecnologia de elite comandada por dois especialistas. Unimos <span class="text-white font-medium">desenvolvimento web ultra-rápido</span>, <span class="text-cyan-300 font-medium">automações com IA 24/7</span> e <span class="text-rose-400 font-medium">conteúdo cinematográfico</span> para acelerar sua operação rumo à pole position.
+      </p>
+
+      <!-- Hero Call-to-Actions -->
+      <div id="hero-actions" class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20VL%20Tech!%20Quero%20escalar%20minha%20empresa%20com%20suas%20solu%C3%A7%C3%B5es." 
+           target="_blank" 
+           class="btn-primary-glow w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm tracking-wide shadow-[0_0_35px_rgba(0,240,255,0.4)] flex items-center justify-center space-x-2 group">
+          <span>Escalar Minha Operação</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+        </a>
+        <a href="#fundadores" class="w-full sm:w-auto px-7 py-4 rounded-full border border-white/15 hover:border-cyan-400/50 bg-zinc-900/40 backdrop-blur-lg hover:bg-white/5 text-zinc-200 font-medium text-sm transition-all flex items-center justify-center space-x-2">
+          <span>Conhecer os Fundadores</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-cyan-400"></i>
+        </a>
+      </div>
+
+      <!-- F1 Telemetry HUD Strip -->
+      <div id="hero-telemetry-hud" class="w-full max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-4 rounded-2xl glass-panel-elevated border border-white/10 text-left">
+        <div class="p-2 sm:p-3 border-r border-white/5 last:border-0">
+          <div class="flex items-center space-x-1.5 text-zinc-400 font-mono text-[10px] uppercase mb-1">
+            <i data-lucide="zap" class="w-3 h-3 text-cyan-400"></i>
+            <span>Tempo de Resposta</span>
+          </div>
+          <span class="font-syne font-bold text-lg sm:text-xl text-white block">&lt; 800ms</span>
+          <span class="text-[10px] text-zinc-500 font-mono">Edge CDN Global</span>
+        </div>
+        <div class="p-2 sm:p-3 border-r border-white/5 last:border-0">
+          <div class="flex items-center space-x-1.5 text-zinc-400 font-mono text-[10px] uppercase mb-1">
+            <i data-lucide="cpu" class="w-3 h-3 text-cyan-400"></i>
+            <span>Engine & Stack</span>
+          </div>
+          <span class="font-syne font-bold text-lg sm:text-xl text-cyan-300 block">GSAP + Vercel</span>
+          <span class="text-[10px] text-zinc-500 font-mono">Zero Código Genérico</span>
+        </div>
+        <div class="p-2 sm:p-3 border-r border-white/5 last:border-0">
+          <div class="flex items-center space-x-1.5 text-zinc-400 font-mono text-[10px] uppercase mb-1">
+            <i data-lucide="bot" class="w-3 h-3 text-rose-400"></i>
+            <span>Agentes de IA</span>
+          </div>
+          <span class="font-syne font-bold text-lg sm:text-xl text-rose-400 block">24/7 Autônomo</span>
+          <span class="text-[10px] text-zinc-500 font-mono">WhatsApp & CRM</span>
+        </div>
+        <div class="p-2 sm:p-3">
+          <div class="flex items-center space-x-1.5 text-zinc-400 font-mono text-[10px] uppercase mb-1">
+            <i data-lucide="users" class="w-3 h-3 text-emerald-400"></i>
+            <span>Diretoria</span>
+          </div>
+          <span class="font-syne font-bold text-lg sm:text-xl text-white block">2 Co-Founders</span>
+          <span class="text-[10px] text-zinc-500 font-mono">Luiz G. & Vitor</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Animated Scroll-Down Indicator -->
+    <a href="#fundadores" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center space-y-2 opacity-70 hover:opacity-100 transition-opacity">
+      <span class="font-mono text-[10px] tracking-widest text-zinc-400 uppercase">Scroll to Explore</span>
+      <div id="scroll-indicator-arrow" class="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
+        <span class="w-1 h-2 rounded-full bg-cyan-400"></span>
+      </div>
+    </a>
+
+  </section>
+
+  <!-- ========================================================================
+       3. INTERACTIVE FOUNDERS SHOWCASE (The F1 Driver / Co-Founder Swap)
+       ======================================================================== -->
+  <section id="fundadores" class="relative py-28 px-4 sm:px-8 border-t border-white/5 cyber-grid-dense">
+    
+    <div id="founders-showcase-section" class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 font-mono text-xs mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>FOUNDERS SHOWCASE // CO-FOUNDERS VL TECH</span>
+        </div>
+        <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          A Mente e o Motor <br>
+          <span class="gradient-text-cyan">Por Trás da VL Tech.</span>
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base mt-4">
+          Dois sócios especialistas com perfis complementares. Clique ou role a página para inspecionar a telemetria, especialidades e visão de cada co-fundador.
+        </p>
+
+        <!-- Dynamic Toggle Buttons -->
+        <div class="flex items-center justify-center space-x-3 sm:space-x-4 mt-8">
+          <button id="btn-founder-luiz" class="interactive-click px-5 py-2.5 rounded-xl border border-cyan-400 bg-cyan-500/20 text-cyan-300 font-mono text-xs font-semibold tracking-wider flex items-center space-x-2 transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)]">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span>01 // LUIZ GABRIEL (TECH & AI)</span>
+          </button>
+          <button id="btn-founder-vitor" class="interactive-click px-5 py-2.5 rounded-xl border border-white/10 bg-zinc-900/60 text-zinc-400 font-mono text-xs font-semibold tracking-wider flex items-center space-x-2 hover:border-rose-400/50 hover:text-zinc-200 transition-all">
+            <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+            <span>02 // VITOR (GROWTH & CREATIVE)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollytelling Pin / Card Container -->
+      <div id="founders-pin-wrapper" class="relative w-full rounded-3xl glass-panel-elevated border border-white/10 p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl">
+        
+        <!-- Corner Technical Decors -->
+        <div class="absolute top-4 left-4 font-mono text-[9px] text-zinc-500">SYS_ID: VL-FNDR-SYS</div>
+        <div class="absolute top-4 right-4 font-mono text-[9px] text-zinc-500">SYNC_RATE: 60Hz</div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left Column: Founder Telemetry & Bio Content -->
+          <div class="lg:col-span-7 flex flex-col justify-center order-2 lg:order-1">
+            <div id="founder-details-content" class="transition-all duration-300">
+              
+              <!-- Badges -->
+              <div class="flex items-center space-x-3 mb-4">
+                <span id="founder-display-num" class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 font-syne font-bold text-white flex items-center justify-center text-sm">
+                  01
+                </span>
+                <span id="founder-display-tag" class="font-mono text-xs tracking-widest font-semibold text-cyan-400">
+                  // FULLSTACK & AI CORE
+                </span>
+              </div>
+
+              <!-- Name and Role -->
+              <h3 id="founder-display-name" class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-2">
+                Luiz Gabriel
+              </h3>
+              <p id="founder-display-role" class="text-sm font-mono text-cyan-300/80 mb-6">
+                Co-Founder & Head of Tech & AI Architecture
+              </p>
+
+              <!-- Philosophy / Quote -->
+              <blockquote class="p-4 rounded-xl bg-white/[0.02] border-l-2 border-cyan-400 text-zinc-300 italic text-sm mb-6">
+                <span id="founder-display-quote">
+                  "Código sem velocidade é prejuízo. Construímos softwares com padrão F1 de precisão para colocar sua empresa no topo."
+                </span>
+              </blockquote>
+
+              <!-- Bio -->
+              <p id="founder-display-bio" class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-8">
+                Engenheiro de software e especialista em inteligência artificial aplicada. Arquiteta plataformas web de altíssima conversão, pipelines de automação 24/7 e integrações profundas com LLMs para eliminar gargalos operacionais.
+              </p>
+
+              <!-- Founder Stats Grid -->
+              <div id="founder-display-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+                <div class="glass-panel p-3.5 rounded-xl border border-white/5 bg-zinc-900/40">
+                  <span class="block text-xs font-mono text-zinc-400 mb-1">Latency Target</span>
+                  <span class="text-lg font-bold font-syne text-cyan-400">&lt; 0.8s</span>
+                </div>
+                <div class="glass-panel p-3.5 rounded-xl border border-white/5 bg-zinc-900/40">
+                  <span class="block text-xs font-mono text-zinc-400 mb-1">AI Uptime</span>
+                  <span class="text-lg font-bold font-syne text-cyan-400">99.98%</span>
+                </div>
+                <div class="glass-panel p-3.5 rounded-xl border border-white/5 bg-zinc-900/40">
+                  <span class="block text-xs font-mono text-zinc-400 mb-1">Code Base</span>
+                  <span class="text-lg font-bold font-syne text-cyan-400">100% Custom</span>
+                </div>
+                <div class="glass-panel p-3.5 rounded-xl border border-white/5 bg-zinc-900/40">
+                  <span class="block text-xs font-mono text-zinc-400 mb-1">Automations</span>
+                  <span class="text-lg font-bold font-syne text-cyan-400">Deep Webhooks</span>
+                </div>
+              </div>
+
+              <!-- Skills tags -->
+              <div>
+                <span class="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2.5">Especialidades de Domínio:</span>
+                <div id="founder-display-skills" class="flex flex-wrap gap-2">
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-cyan-500/40 text-zinc-200">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 mr-2"></span>
+                    GSAP / WebGL Motion
+                  </span>
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-cyan-500/40 text-zinc-200">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 mr-2"></span>
+                    Vercel Edge Computing
+                  </span>
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-cyan-500/40 text-zinc-200">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 mr-2"></span>
+                    WhatsApp Cloud API & AI
+                  </span>
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 border border-cyan-500/40 text-zinc-200">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 mr-2"></span>
+                    High-Converting Architecture
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column: Cinematic Holographic Portrait Stage -->
+          <div class="lg:col-span-5 flex items-center justify-center order-1 lg:order-2">
+            <div id="founder-hud-frame" class="relative w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 bg-zinc-950 p-2 shadow-2xl group">
+              
+              <!-- HUD Corner Accents -->
+              <span class="absolute w-4 h-4 hud-corner-tl z-20"></span>
+              <span class="absolute w-4 h-4 hud-corner-tr z-20"></span>
+              <span class="absolute w-4 h-4 hud-corner-bl z-20"></span>
+              <span class="absolute w-4 h-4 hud-corner-br z-20"></span>
+              
+              <!-- Scanline animation effect -->
+              <div class="scanline-effect z-20"></div>
+
+              <!-- Inner Glow Halo -->
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10"></div>
+
+              <!-- Portrait 01: Luiz -->
+              <img id="portrait-img-luiz" 
+                   src="assets/socios/luiz-dark.jpg" 
+                   alt="Luiz Gabriel - Co-Founder VL Tech" 
+                   class="absolute inset-0 w-full h-full object-cover object-center rounded-xl transition-all duration-500 opacity-100 scale-100 z-0">
+
+              <!-- Portrait 02: Vitor -->
+              <img id="portrait-img-vitor" 
+                   src="assets/socios/vitor-dark.jpg" 
+                   alt="Vitor - Co-Founder VL Tech" 
+                   class="absolute inset-0 w-full h-full object-cover object-center rounded-xl transition-all duration-500 opacity-0 scale-95 z-0">
+
+              <!-- Live HUD Telemetry Badge Overlay -->
+              <div class="absolute bottom-4 left-4 right-4 z-20 p-3 rounded-xl bg-zinc-950/80 backdrop-blur-md border border-white/10 flex items-center justify-between">
+                <div>
+                  <span class="block text-[9px] font-mono text-zinc-400 uppercase">IDENTIFIER</span>
+                  <span class="text-xs font-mono font-bold text-white tracking-widest">VL-CORE-ACTIVE</span>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span class="text-[10px] font-mono text-emerald-400 font-semibold">VERIFIED</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================================
+       4. THE 3 CORE SERVICE PILLARS (Replacing "Helmets" Concept)
+       ======================================================================== -->
+  <section id="servicos" class="relative py-28 px-4 sm:px-8 border-t border-white/5 cyber-grid">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 font-mono text-xs mb-4">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>CORE PILLARS // NOSSAS 3 FRENTES DE ATAQUE</span>
+        </div>
+        <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          Engenharia de Ponta.<br>
+          <span class="gradient-text-silver">Resultados Mensuráveis.</span>
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base mt-4">
+          Substituímos o modelo arcaico das agências tradicionais por tecnologia própria, carregamento sub-segundo e automação sem atrito.
+        </p>
+      </div>
+
+      <!-- 3 Interactive Pillars Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- =================== PILLAR 1: WEB DEV =================== -->
+        <div class="card-tilt-element glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-cyan-400/50 transition-all duration-300">
+          <div>
+            <!-- Badge & Icon -->
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
+                <i data-lucide="code-2" class="w-6 h-6"></i>
+              </div>
+              <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-300">01 // CODE</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-syne font-bold text-2xl text-white mb-2 group-hover:text-cyan-300 transition-colors">
+              High-Performance Web & Landing Pages
+            </h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Desenvolvimento sob medida sem construtores pesados. Interfaces ricas com GSAP, Three.js e deploy direto na borda com Vercel Edge para carregamento instantâneo.
+            </p>
+
+            <!-- Interactive Code Sandbox Mockup -->
+            <div class="rounded-xl overflow-hidden border border-white/10 bg-zinc-950/90 mb-6 font-mono text-xs">
+              <div class="flex items-center justify-between px-3 py-2 border-b border-white/10 bg-zinc-900/60">
+                <div class="flex space-x-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <!-- Interactive Tabs -->
+                <div class="flex space-x-1">
+                  <button class="code-tab-btn px-2 py-0.5 rounded text-[10px] bg-cyan-500/20 text-cyan-400 border border-cyan-500/40" data-tab="web">gsap.js</button>
+                  <button class="code-tab-btn px-2 py-0.5 rounded text-[10px] text-zinc-400 hover:text-white" data-tab="seo">seo.json</button>
+                  <button class="code-tab-btn px-2 py-0.5 rounded text-[10px] text-zinc-400 hover:text-white" data-tab="stack">stack.conf</button>
+                </div>
+              </div>
+              <pre class="p-3 text-[11px] text-zinc-300 overflow-x-auto leading-relaxed max-h-44"><code id="code-display-content">// VL Tech Edge Architecture
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+export async function initCinematicHero() {
+  const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  
+  await timeline
+    .from('.hero-headline', { y: 60, opacity: 0, duration: 1.1 })
+    .from('.telemetry-hud', { opacity: 0, scale: 0.95 }, '-=0.4');
+    
+  console.log('[VL Tech] 60FPS WebGL Engine Running on Edge CDN');
+}</code></pre>
+            </div>
+
+            <!-- Features list -->
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-400 mr-2 shrink-0"></i>
+                <span>Score 98-100 no Google PageSpeed</span>
+              </li>
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-400 mr-2 shrink-0"></i>
+                <span>Animações cinematográficas com GSAP 3</span>
+              </li>
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-400 mr-2 shrink-0"></i>
+                <span>Deploy em rede global com latência mínima</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20VL%20Tech!%20Quero%20um%20site%20ou%20landing%20page%20de%20alta%20performance." 
+             target="_blank" 
+             class="w-full py-3 rounded-xl border border-white/10 hover:border-cyan-400/50 bg-white/5 hover:bg-cyan-500/10 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-all">
+            <span>Desenvolver Meu Site</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-cyan-400"></i>
+          </a>
+        </div>
+
+        <!-- =================== PILLAR 2: INSTAGRAM & CONTENT =================== -->
+        <div class="card-tilt-element glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-rose-400/50 transition-all duration-300">
+          <div>
+            <!-- Badge & Icon -->
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 group-hover:scale-110 group-hover:bg-rose-500/20 transition-all">
+                <i data-lucide="instagram" class="w-6 h-6"></i>
+              </div>
+              <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-rose-300">02 // SOCIAL</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-syne font-bold text-2xl text-white mb-2 group-hover:text-rose-300 transition-colors">
+              Instagram Content & Direção Criativa
+            </h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Transformação completa do posicionamento estético do seu feed. Reels com edição de cinema, design systems exclusivos e copywriting afiado para retenção e vendas.
+            </p>
+
+            <!-- Interactive Smartphone / Instagram Grid Mockup -->
+            <div class="rounded-xl overflow-hidden border border-white/10 bg-zinc-950/90 mb-6 p-3.5 font-mono text-xs">
+              <div class="flex items-center justify-between pb-2 border-b border-white/10 mb-3">
+                <div class="flex items-center space-x-2">
+                  <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-rose-500 to-amber-500 p-0.5">
+                    <img src="assets/logo/vl-logo.jpg" alt="VL Profile" class="w-full h-full rounded-full object-cover">
+                  </div>
+                  <span class="font-bold text-white text-[11px]">@vltech.agency</span>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[9px] font-bold">REELS VIRAL</span>
+              </div>
+              
+              <!-- Metrics Highlight -->
+              <div class="grid grid-cols-3 gap-1.5 text-center mb-3">
+                <div class="p-2 rounded bg-white/5 border border-white/5">
+                  <span class="block text-[11px] font-bold text-white font-syne">+850K</span>
+                  <span class="text-[8px] text-zinc-400">Alcance Reels</span>
+                </div>
+                <div class="p-2 rounded bg-white/5 border border-white/5">
+                  <span class="block text-[11px] font-bold text-rose-400 font-syne">14.8%</span>
+                  <span class="text-[8px] text-zinc-400">Engajamento</span>
+                </div>
+                <div class="p-2 rounded bg-white/5 border border-white/5">
+                  <span class="block text-[11px] font-bold text-emerald-400 font-syne">4.2x</span>
+                  <span class="text-[8px] text-zinc-400">Conversão DM</span>
+                </div>
+              </div>
+
+              <!-- Content Pill Preview -->
+              <div class="p-2.5 rounded-lg bg-zinc-900/70 border border-white/5 text-[10px] text-zinc-300">
+                <span class="text-rose-400 font-bold">Diretriz Criativa:</span> Narrativas de autoridade com ganchos neuro-persuasivos e estética dark mode de alto padrão.
+              </div>
+            </div>
+
+            <!-- Features list -->
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-rose-400 mr-2 shrink-0"></i>
+                <span>Edição de Reels nível documentário e publicidade</span>
+              </li>
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-rose-400 mr-2 shrink-0"></i>
+                <span>Feed harmônico e Design System proprietário</span>
+              </li>
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-rose-400 mr-2 shrink-0"></i>
+                <span>Roteiros testados para transformar curtidas em DMs</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20VL%20Tech!%20Quero%20elevar%20o%20Instagram%20da%20minha%20empresa." 
+             target="_blank" 
+             class="w-full py-3 rounded-xl border border-white/10 hover:border-rose-400/50 bg-white/5 hover:bg-rose-500/10 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-all">
+            <span>Posicionar Meu Instagram</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-rose-400"></i>
+          </a>
+        </div>
+
+        <!-- =================== PILLAR 3: AI CHATBOTS & AUTOMATION =================== -->
+        <div class="card-tilt-element glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-blue-400/50 transition-all duration-300">
+          <div>
+            <!-- Badge & Icon -->
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all">
+                <i data-lucide="bot" class="w-6 h-6"></i>
+              </div>
+              <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-blue-300">03 // AI AGENTS</span>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-syne font-bold text-2xl text-white mb-2 group-hover:text-blue-300 transition-colors">
+              Chatbots com IA & Automação 24/7
+            </h3>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
+              Agentes inteligentes conectados ao WhatsApp oficial, Instagram e CRM. Atendimento ultra-personalizado, qualificação em segundos e agendamentos no piloto automático.
+            </p>
+
+            <!-- LIVE INTERACTIVE CHATBOT SIMULATION -->
+            <div class="rounded-xl overflow-hidden border border-white/10 bg-zinc-950/90 mb-6 flex flex-col h-60">
+              
+              <!-- Chat header -->
+              <div class="px-3 py-2 border-b border-white/10 bg-zinc-900/80 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="text-[11px] font-mono text-zinc-200 font-semibold">VL Bot // Online</span>
+                </div>
+                <span class="text-[9px] font-mono text-cyan-400">Simulador Interativo</span>
+              </div>
+
+              <!-- Message Stream -->
+              <div id="chat-messages-container" class="flex-1 p-3 overflow-y-auto space-y-2">
+                <div class="flex justify-start items-start space-x-2 mb-2">
+                  <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-[9px] font-bold text-white shrink-0">VL</div>
+                  <div class="max-w-[85%] rounded-2xl px-3 py-2 text-xs bg-zinc-900/90 border border-white/10 text-zinc-200">
+                    <p>Olá! Sou o agente de IA da VL Tech. Como posso acelerar seu negócio hoje?</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive prompt chips -->
+              <div class="p-2 border-t border-white/5 bg-zinc-900/40 flex flex-wrap gap-1">
+                <button class="chat-chip-btn text-[9px] px-2 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-zinc-300 hover:text-cyan-300 border border-white/10 transition-colors" data-prompt="Como funciona a automação com IA?">
+                  Como funciona a IA?
+                </button>
+                <button class="chat-chip-btn text-[9px] px-2 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-zinc-300 hover:text-cyan-300 border border-white/10 transition-colors" data-prompt="Quanto tempo leva para criar um site?">
+                  Prazo de entrega?
+                </button>
+                <button class="chat-chip-btn text-[9px] px-2 py-1 rounded-md bg-white/5 hover:bg-cyan-500/20 text-zinc-300 hover:text-cyan-300 border border-white/10 transition-colors" data-prompt="Quero falar com a VL Tech no WhatsApp">
+                  Chamar no WhatsApp
+                </button>
+              </div>
+
+              <!-- Interactive mini input -->
+              <div class="p-2 border-t border-white/10 bg-zinc-950 flex items-center space-x-1.5">
+                <input id="chat-custom-input" type="text" placeholder="Digite uma pergunta..." class="flex-1 bg-transparent text-xs text-white placeholder-zinc-500 focus:outline-none px-2 py-1">
+                <button id="chat-send-btn" class="p-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold">
+                  <i data-lucide="send" class="w-3 h-3"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Features list -->
+            <ul class="space-y-2 mb-8">
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-400 mr-2 shrink-0"></i>
+                <span>API Oficial da Meta (sem risco de bloqueio)</span>
+              </li>
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-400 mr-2 shrink-0"></i>
+                <span>Treinamento com contexto exclusivo da sua empresa</span>
+              </li>
+              <li class="flex items-center text-xs text-zinc-300">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-400 mr-2 shrink-0"></i>
+                <span>Zero espera para o cliente final (atendimento &lt; 2s)</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20VL%20Tech!%20Quero%20automatizar%20o%20atendimento%20da%20minha%20empresa%20com%20IA." 
+             target="_blank" 
+             class="w-full py-3 rounded-xl border border-white/10 hover:border-blue-400/50 bg-white/5 hover:bg-blue-500/10 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-all">
+            <span>Implantar Agente de IA</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-blue-400"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. INTERACTIVE METRICS & IMPACT GRID
+       ======================================================================== -->
+  <section id="impacto" class="relative py-28 px-4 sm:px-8 border-t border-white/5 bg-[#09090f]">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 font-mono text-xs mb-4">
+          <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+          <span>TELEMETRIA DE RESULTADOS // PROVAS DE IMPACTO</span>
+        </div>
+        <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          Métricas Que Movem <br>
+          <span class="gradient-text-silver">O Ponteiro do Faturamento.</span>
+        </h2>
+      </div>
+
+      <!-- 4 Glowing Telemetry Metric Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        
+        <!-- Metric 1 -->
+        <div class="metric-counter-card glass-panel-elevated p-6 rounded-2xl border border-white/10 hover:border-cyan-400/40 transition-all text-center group"
+             data-target="340" data-prefix="+" data-suffix="%" data-decimals="0">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="trending-up" class="w-5 h-5"></i>
+          </div>
+          <span class="metric-num-display font-syne font-extrabold text-4xl sm:text-5xl text-white block mb-2 text-glow-cyan">
+            +0%
+          </span>
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-300 block mb-1">Taxa de Conversão Média</span>
+          <p class="text-zinc-400 text-xs">Aumento comprovado na conversão de visitantes em clientes qualificados.</p>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="metric-counter-card glass-panel-elevated p-6 rounded-2xl border border-white/10 hover:border-rose-400/40 transition-all text-center group"
+             data-target="120" data-prefix="" data-suffix="h+" data-decimals="0">
+          <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="clock" class="w-5 h-5"></i>
+          </div>
+          <span class="metric-num-display font-syne font-extrabold text-4xl sm:text-5xl text-white block mb-2 text-glow-red">
+            0h+
+          </span>
+          <span class="text-xs font-mono uppercase tracking-wider text-rose-400 block mb-1">Horas Semanais Poupadas</span>
+          <p class="text-zinc-400 text-xs">Tempo operacional economizado por empresas com agentes autônomos de IA.</p>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="metric-counter-card glass-panel-elevated p-6 rounded-2xl border border-white/10 hover:border-blue-400/40 transition-all text-center group"
+             data-target="0.75" data-prefix="< " data-suffix="s" data-decimals="2">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="gauge" class="w-5 h-5"></i>
+          </div>
+          <span class="metric-num-display font-syne font-extrabold text-4xl sm:text-5xl text-white block mb-2">
+            &lt; 0.00s
+          </span>
+          <span class="text-xs font-mono uppercase tracking-wider text-blue-300 block mb-1">Tempo de Carregamento</span>
+          <p class="text-zinc-400 text-xs">Arquitetura Vercel Edge com carregamento instantâneo em qualquer dispositivo.</p>
+        </div>
+
+        <!-- Metric 4 -->
+        <div class="metric-counter-card glass-panel-elevated p-6 rounded-2xl border border-white/10 hover:border-emerald-400/40 transition-all text-center group"
+             data-target="99.8" data-prefix="" data-suffix="%" data-decimals="1">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <span class="metric-num-display font-syne font-extrabold text-4xl sm:text-5xl text-white block mb-2">
+            0%
+          </span>
+          <span class="text-xs font-mono uppercase tracking-wider text-emerald-300 block mb-1">Precisão no Atendimento IA</span>
+          <p class="text-zinc-400 text-xs">Respostas contextuais de alta fidelidade sem alucinações ou respostas frias.</p>
+        </div>
+
+      </div>
+
+      <!-- Comparative Telemetry: Tradicional vs VL Tech -->
+      <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 overflow-hidden">
+        <h4 class="font-syne font-bold text-lg sm:text-xl text-white mb-6 flex items-center space-x-2">
+          <i data-lucide="scale" class="w-5 h-5 text-cyan-400"></i>
+          <span>Agências Tradicionais vs. Aceleração VL Tech</span>
+        </h4>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left font-mono text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b border-white/10 text-zinc-400 uppercase text-[10px] tracking-wider">
+                <th class="py-3 px-4">Critério Operacional</th>
+                <th class="py-3 px-4 text-zinc-500">Agência Convencional</th>
+                <th class="py-3 px-4 text-cyan-400 font-bold">Padrão VL Tech</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5">
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Desenvolvimento & Código</td>
+                <td class="py-3 px-4 text-zinc-400">Wordpress / Elementor lento</td>
+                <td class="py-3 px-4 text-cyan-300 font-medium flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 mr-1 text-cyan-400"></i> Custom Code + GSAP 3 + Vercel</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Velocidade de Carregamento</td>
+                <td class="py-3 px-4 text-zinc-400">3.5s a 7s (perda de leads)</td>
+                <td class="py-3 px-4 text-cyan-300 font-medium flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 mr-1 text-cyan-400"></i> Sub-segundo (&lt; 800ms Global)</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Atendimento ao Cliente</td>
+                <td class="py-3 px-4 text-zinc-400">Humano demorado (horário comercial)</td>
+                <td class="py-3 px-4 text-cyan-300 font-medium flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 mr-1 text-cyan-400"></i> Agente de IA 24/7 sem fila</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Conteúdo & Social</td>
+                <td class="py-3 px-4 text-zinc-400">Posts estáticos no Canva genérico</td>
+                <td class="py-3 px-4 text-cyan-300 font-medium flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 mr-1 text-cyan-400"></i> Reels Cinematográficos & Design System</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-semibold text-white">Comunicação com a Diretoria</td>
+                <td class="py-3 px-4 text-zinc-400">Intermediários e estagiários</td>
+                <td class="py-3 px-4 text-cyan-300 font-medium flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 mr-1 text-cyan-400"></i> Contato direto com Luiz e Vitor</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. CASES DE SUCESSO & PORTFOLIO INTERATIVO
+       ======================================================================== -->
+  <section id="cases" class="relative py-28 px-4 sm:px-8 border-t border-white/5 cyber-grid">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+        <div>
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 font-mono text-xs mb-4">
+            <i data-lucide="trophy" class="w-3.5 h-3.5"></i>
+            <span>SELECTED WORK // PROJETOS EM DESTAQUE</span>
+          </div>
+          <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+            Cases de Alta <br>
+            <span class="gradient-text-cyan">Performance.</span>
+          </h2>
+        </div>
+        <p class="text-zinc-400 text-sm max-w-md mt-4 md:mt-0">
+          Uma seleção de ecossistemas digitais construídos sob a chancela da VL Tech para elevar marcas e gerar faturamento.
+        </p>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Case 1 -->
+        <div class="glass-panel-elevated rounded-3xl overflow-hidden border border-white/10 group hover:border-cyan-400/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="relative h-56 bg-zinc-900 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10"></div>
+              <!-- Abstract visual preview -->
+              <div class="w-full h-full bg-gradient-to-br from-cyan-900/40 via-blue-900/30 to-zinc-950 flex items-center justify-center p-6 group-hover:scale-105 transition-transform duration-500">
+                <div class="w-full p-4 rounded-xl bg-black/60 border border-cyan-500/30 font-mono text-xs text-cyan-300">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-white font-bold">NEXUS_CAPITAL.APP</span>
+                    <span class="text-emerald-400">60 FPS</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-cyan-500/20 overflow-hidden mb-2">
+                    <div class="w-4/5 h-full bg-cyan-400"></div>
+                  </div>
+                  <span class="text-[10px] text-zinc-400">LCP: 0.58s // CONVERSÃO: +410%</span>
+                </div>
+              </div>
+              <span class="absolute top-4 left-4 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 font-mono text-[10px] text-cyan-300 uppercase">
+                Web Development
+              </span>
+            </div>
+            
+            <div class="p-6">
+              <h3 class="font-syne font-bold text-xl text-white mb-2 group-hover:text-cyan-300 transition-colors">Nexus Capital</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Plataforma institucional com micro-interações 3D e velocidade de abertura instantânea para uma gestora de investimentos.
+              </p>
+              <div class="flex items-center space-x-2 font-mono text-xs text-cyan-400 font-semibold mb-4">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                <span>+410% em Conversão de Leads</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-0">
+            <button class="case-inspect-btn w-full py-2.5 rounded-xl border border-white/10 hover:border-cyan-400/50 bg-white/5 hover:bg-cyan-500/10 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-all" data-case="fintech">
+              <span>Inspecionar Case</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="glass-panel-elevated rounded-3xl overflow-hidden border border-white/10 group hover:border-rose-400/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="relative h-56 bg-zinc-900 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10"></div>
+              <!-- Abstract visual preview -->
+              <div class="w-full h-full bg-gradient-to-br from-rose-950/40 via-purple-950/30 to-zinc-950 flex items-center justify-center p-6 group-hover:scale-105 transition-transform duration-500">
+                <div class="w-full p-4 rounded-xl bg-black/60 border border-rose-500/30 font-mono text-xs text-rose-300">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-white font-bold">AURA_COLLECTIVE</span>
+                    <span class="text-rose-400">VIRAL REELS</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-rose-500/20 overflow-hidden mb-2">
+                    <div class="w-11/12 h-full bg-rose-400"></div>
+                  </div>
+                  <span class="text-[10px] text-zinc-400">ALCANCE: 1.4M // ROI: 4.8X</span>
+                </div>
+              </div>
+              <span class="absolute top-4 left-4 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 font-mono text-[10px] text-rose-300 uppercase">
+                Content & Social
+              </span>
+            </div>
+            
+            <div class="p-6">
+              <h3 class="font-syne font-bold text-xl text-white mb-2 group-hover:text-rose-300 transition-colors">Aura Lifestyle</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Rebranding visual, direção de arte e produção de Reels cinematográficos que escalaram o alcance orgânico da marca.
+              </p>
+              <div class="flex items-center space-x-2 font-mono text-xs text-rose-400 font-semibold mb-4">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                <span>+1.4M em Alcance Orgânico</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-0">
+            <button class="case-inspect-btn w-full py-2.5 rounded-xl border border-white/10 hover:border-rose-400/50 bg-white/5 hover:bg-rose-500/10 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-all" data-case="social">
+              <span>Inspecionar Case</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="glass-panel-elevated rounded-3xl overflow-hidden border border-white/10 group hover:border-blue-400/50 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="relative h-56 bg-zinc-900 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10"></div>
+              <!-- Abstract visual preview -->
+              <div class="w-full h-full bg-gradient-to-br from-blue-950/40 via-indigo-950/30 to-zinc-950 flex items-center justify-center p-6 group-hover:scale-105 transition-transform duration-500">
+                <div class="w-full p-4 rounded-xl bg-black/60 border border-blue-500/30 font-mono text-xs text-blue-300">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-white font-bold">OMNIFLOW_AI.BOT</span>
+                    <span class="text-emerald-400">AUTONOMOUS</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-blue-500/20 overflow-hidden mb-2">
+                    <div class="w-full h-full bg-blue-400"></div>
+                  </div>
+                  <span class="text-[10px] text-zinc-400">RESPOSTA: 1.4s // RETENÇÃO: 99.4%</span>
+                </div>
+              </div>
+              <span class="absolute top-4 left-4 z-20 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/10 font-mono text-[10px] text-blue-300 uppercase">
+                AI Automation
+              </span>
+            </div>
+            
+            <div class="p-6">
+              <h3 class="font-syne font-bold text-xl text-white mb-2 group-hover:text-blue-300 transition-colors">OmniFlow AI Core</h3>
+              <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                Automação completa do funil de atendimento e qualificação no WhatsApp com modelos LLM avançados integrados ao CRM.
+              </p>
+              <div class="flex items-center space-x-2 font-mono text-xs text-blue-400 font-semibold mb-4">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                <span>140 Horas/mês Poupadas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-0">
+            <button class="case-inspect-btn w-full py-2.5 rounded-xl border border-white/10 hover:border-blue-400/50 bg-white/5 hover:bg-blue-500/10 text-white font-medium text-xs flex items-center justify-center space-x-2 transition-all" data-case="ai">
+              <span>Inspecionar Case</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. O MÉTODO VL TECH (Telemetry Roadmap)
+       ======================================================================== -->
+  <section id="metodo" class="relative py-28 px-4 sm:px-8 border-t border-white/5 cyber-grid-dense">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 font-mono text-xs mb-4">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span>METHODOLOGY // ENGENHARIA DE EXECUÇÃO</span>
+        </div>
+        <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          O Método VL Tech <br>
+          <span class="gradient-text-silver">Passo a Passo.</span>
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base mt-4">
+          Como transformamos a presença digital da sua empresa em uma máquina de escala em 3 etapas claras.
+        </p>
+      </div>
+
+      <!-- Roadmap 3 Steps -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        
+        <!-- Step 1 -->
+        <div class="glass-panel p-8 rounded-3xl border border-white/10 relative">
+          <span class="font-syne font-extrabold text-5xl text-white/10 absolute top-6 right-6">01</span>
+          <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6">
+            <i data-lucide="search" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-syne font-bold text-xl text-white mb-3">1. Telemetria & Diagnóstico</h3>
+          <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+            Mapeamos os gargalos de conversão, lentidão técnica no seu site atual, ineficiência de atendimento e falhas no posicionamento das redes sociais.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-panel p-8 rounded-3xl border border-white/10 relative">
+          <span class="font-syne font-extrabold text-5xl text-white/10 absolute top-6 right-6">02</span>
+          <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-6">
+            <i data-lucide="code" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-syne font-bold text-xl text-white mb-3">2. Engenharia & Criação</h3>
+          <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+            Luiz lidera o desenvolvimento e integração dos agentes de IA, enquanto Vitor define a direção criativa, design system e a narrativa de autoridade do seu Instagram.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-panel p-8 rounded-3xl border border-white/10 relative">
+          <span class="font-syne font-extrabold text-5xl text-white/10 absolute top-6 right-6">03</span>
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6">
+            <i data-lucide="rocket" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-syne font-bold text-xl text-white mb-3">3. Deploy no Edge & Escala</h3>
+          <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+            Lançamento global na infraestrutura da Vercel Edge, ativação dos robôs de WhatsApp 24/7 e publicação das campanhas estratégicas para tracionar faturamento.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. PERGUNTAS FREQUENTES (FAQ ACCORDION)
+       ======================================================================== -->
+  <section id="faq" class="relative py-28 px-4 sm:px-8 border-t border-white/5 bg-[#09090e]">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-400 font-mono text-xs mb-4">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+          <span>FAQ // PERGUNTAS FREQUENTES</span>
+        </div>
+        <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
+          Tire Suas <br>
+          <span class="gradient-text-cyan">Dúvidas.</span>
+        </h2>
+      </div>
+
+      <!-- Accordion -->
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <details class="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 group cursor-pointer">
+          <summary class="flex items-center justify-between font-syne font-bold text-base sm:text-lg text-white list-none">
+            <span>Qual é o prazo médio de entrega para um site ou landing page?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mt-4 pt-4 border-t border-white/5">
+            Nossos projetos de desenvolvimento web são entregues normalmente em um prazo de 7 a 15 dias úteis, dependendo da complexidade das animações e integrações. Mantemos um padrão rígido de qualidade e você acompanha cada etapa com a diretoria.
+          </p>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 group cursor-pointer">
+          <summary class="flex items-center justify-between font-syne font-bold text-base sm:text-lg text-white list-none">
+            <span>Como o chatbot com Inteligência Artificial funciona no WhatsApp?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mt-4 pt-4 border-t border-white/5">
+            Utilizamos a API Oficial da Meta (WhatsApp Cloud API) conectada a modelos de IA treinados com todo o manual, produtos, regras e tom de voz da sua empresa. O robô responde em menos de 2 segundos, tira dúvidas técnicas, qualifica e transfere para um atendente humano se necessário.
+          </p>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 group cursor-pointer">
+          <summary class="flex items-center justify-between font-syne font-bold text-base sm:text-lg text-white list-none">
+            <span>A gestão de Instagram inclui a gravação e edição dos vídeos?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mt-4 pt-4 border-t border-white/5">
+            Sim! Fornecemos a direção criativa completa: elaboramos os roteiros com ganchos virais, orientamos a gravação ou captamos o material (a depender da localidade) e fazemos a pós-produção cinematográfica com sound design, motion graphics e color grading de cinema.
+          </p>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="glass-panel p-5 sm:p-6 rounded-2xl border border-white/10 group cursor-pointer">
+          <summary class="flex items-center justify-between font-syne font-bold text-base sm:text-lg text-white list-none">
+            <span>Posso contratar apenas um dos serviços ou somente o pacote completo?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cyan-400 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mt-4 pt-4 border-t border-white/5">
+            Você pode contratar de forma modular de acordo com o estágio da sua empresa (ex: apenas a Landing Page, apenas a Automação de WhatsApp ou apenas o Social Management). No entanto, a sinergia entre os três serviços potencializa exponencialmente o resultado.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. HIGH-IMPACT CALL TO ACTION (CLOSING SECTION)
+       ======================================================================== -->
+  <section class="relative py-28 px-4 sm:px-8 border-t border-white/5 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-950/20 to-zinc-950 pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto relative z-10 text-center">
+      
+      <!-- Logo Accent -->
+      <div class="w-16 h-16 rounded-2xl overflow-hidden border border-white/20 mx-auto mb-8 shadow-2xl p-1 bg-black">
+        <img src="assets/logo/vl-logo.jpg" alt="VL Tech Brand" class="w-full h-full object-cover rounded-xl">
+      </div>
+
+      <h2 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl text-white tracking-tight uppercase mb-6 leading-tight">
+        Pronto Para Colocar Sua Operação na <br>
+        <span class="gradient-text-cyan text-glow-cyan">Pole Position?</span>
+      </h2>
+
+      <p class="text-zinc-300 text-base sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Não deixe seus concorrentes dominarem o tráfego e o atendimento enquanto você lida com lentidão. Vamos conversar agora sobre seu próximo salto.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20Luiz%20e%20Vitor!%20Quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20minha%20empresa." 
+           target="_blank" 
+           class="btn-primary-glow w-full sm:w-auto px-10 py-5 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-base tracking-wide shadow-[0_0_40px_rgba(0,240,255,0.45)] flex items-center justify-center space-x-3 group">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          <span>Falar Diretamente com os Fundadores</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <div class="mt-8 flex items-center justify-center space-x-6 text-zinc-400 font-mono text-xs">
+        <span class="flex items-center"><i data-lucide="shield" class="w-3.5 h-3.5 text-cyan-400 mr-1.5"></i> Contrato & Garantia</span>
+        <span class="flex items-center"><i data-lucide="zap" class="w-3.5 h-3.5 text-rose-400 mr-1.5"></i> Resposta em Minutos</span>
+        <span class="flex items-center"><i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-400 mr-1.5"></i> Sigilo Total (NDA)</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       10. FOOTER
+       ======================================================================== -->
+  <footer class="relative py-12 px-4 sm:px-8 border-t border-white/10 bg-[#060608]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand -->
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg overflow-hidden border border-white/10 bg-black p-0.5">
+          <img src="assets/logo/vl-logo.jpg" alt="VL Tech" class="w-full h-full object-cover rounded">
+        </div>
+        <div>
+          <span class="font-syne font-bold text-white tracking-wider text-sm block">VL TECH</span>
+          <span class="text-[10px] text-zinc-500 font-mono">Performance Engineering & Artificial Intelligence</span>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="flex items-center space-x-6 text-xs text-zinc-400">
+        <a href="#hero" class="hover:text-cyan-400 transition-colors">Início</a>
+        <a href="#fundadores" class="hover:text-cyan-400 transition-colors">Fundadores</a>
+        <a href="#servicos" class="hover:text-cyan-400 transition-colors">Serviços</a>
+        <a href="#impacto" class="hover:text-cyan-400 transition-colors">Impacto</a>
+        <a href="#cases" class="hover:text-cyan-400 transition-colors">Cases</a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-right">
+        <p class="text-[11px] font-mono text-zinc-500">
+          © 2026 VL Tech. Todos os direitos reservados.
+        </p>
+        <p class="text-[9px] font-mono text-zinc-600 mt-0.5">
+          Construído por Luiz Gabriel & Vitor // Vercel Edge Global
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       11. CASE DETAILS MODAL
+       ======================================================================== -->
+  <div id="case-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl hidden items-center justify-center p-4">
+    <div class="glass-panel-elevated w-full max-w-2xl rounded-3xl border border-white/20 p-6 sm:p-8 relative shadow-2xl animate-float">
+      
+      <!-- Close button -->
+      <button id="case-modal-close" class="absolute top-5 right-5 p-2 rounded-xl bg-white/5 border border-white/10 text-zinc-400 hover:text-white transition-colors" aria-label="Fechar modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <span id="modal-case-category" class="font-mono text-xs text-cyan-400 uppercase tracking-wider block mb-1"></span>
+      <h3 id="modal-case-title" class="font-syne font-extrabold text-2xl sm:text-3xl text-white mb-2"></h3>
+      <div id="modal-case-stats" class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-semibold mb-6"></div>
+
+      <p id="modal-case-desc" class="text-zinc-300 text-sm leading-relaxed mb-6"></p>
+
+      <div class="mb-6">
+        <span class="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-2">Entregáveis de Alta Precisão:</span>
+        <ul id="modal-case-deliverables" class="space-y-2"></ul>
+      </div>
+
+      <div class="mb-8">
+        <span class="block text-xs font-mono text-zinc-400 uppercase tracking-wider mb-2">Stack & Ferramental:</span>
+        <div id="modal-case-tech" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1%20VL%20Tech!%20Gostei%20do%20case%20e%20quero%20um%20projeto%20similar%20para%20minha%20empresa." 
+         target="_blank" 
+         class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-xs tracking-wider uppercase flex items-center justify-center space-x-2 shadow-lg">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>Solicitar Projeto Equivalente</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>
