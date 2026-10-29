@@ -6,3 +6,8 @@ backup/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Heavy reference video assets (preserved locally)
+assets/modelo/
+*.mp4
+

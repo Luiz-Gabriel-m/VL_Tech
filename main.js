@@ -75,9 +75,14 @@ function initCustomCursor() {
 /* ==========================================================================
    2. THREE.JS WEBGL PARTICLES & WAVE MESH CANVAS (.gl-canvas)
    ========================================================================== */
+let globalThreeMaterial = null;
+let targetThreeColor = null;
+
 function initThreeCanvas() {
   const canvas = document.getElementById('gl-canvas');
   if (!canvas || typeof THREE === 'undefined') return;
+
+  targetThreeColor = new THREE.Color('#d2ff00');
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -118,6 +123,8 @@ function initThreeCanvas() {
     blending: THREE.AdditiveBlending
   });
 
+  globalThreeMaterial = material;
+
   const particles = new THREE.Points(geometry, material);
   particles.rotation.x = 0.35;
   scene.add(particles);
@@ -150,6 +157,11 @@ function initThreeCanvas() {
       }
     }
     geometry.attributes.position.needsUpdate = true;
+
+    // Smoothly morph particle color to active pillar / founder theme
+    if (globalThreeMaterial && targetThreeColor) {
+      globalThreeMaterial.color.lerp(targetThreeColor, 0.04);
+    }
 
     particles.rotation.y += (mouseX - particles.rotation.y) * 0.05;
     particles.rotation.x = 0.35 + (mouseY - particles.rotation.x) * 0.05;
@@ -205,12 +217,20 @@ let activeFounderId = 'luiz';
 function initLandoHeroScrollytelling() {
   const track = document.getElementById('hero-track');
   const stageBox = document.getElementById('stage-3d-box');
+  const visorAssemblyRig = document.getElementById('visor-assembly-rig');
+  const topCowl = document.getElementById('visor-top-cowl');
+  const pivotLeft = document.getElementById('visor-pivot-left');
+  const pivotRight = document.getElementById('visor-pivot-right');
   const canopyDome = document.getElementById('pillar-canopy-dome');
+  const chinGuard = document.getElementById('visor-chin-guard');
+  const sweepGlare = document.getElementById('visor-assembly-sweep');
   const visorGlare = document.getElementById('visor-glare');
   const stageGlow = document.getElementById('stage-3d-glow');
   const stepperBtns = document.querySelectorAll('.stepper-pill-btn');
   const founderBtns = document.querySelectorAll('.founder-pill-btn');
   const quickSwapBtn = document.getElementById('portrait-quick-swap-btn');
+
+  let sweepFired = false;
 
   // Manual Stepper Clicks
   stepperBtns.forEach((btn) => {
@@ -245,10 +265,47 @@ function initLandoHeroScrollytelling() {
       scrub: 1,
       onUpdate: (self) => {
         const p = self.progress;
-        if (p < 0.33) {
+
+        // 1. 3D Visor / Canopy Assembly Mechanics (Progress 0% -> 18%)
+        const normP = Math.min(Math.max(p / 0.18, 0), 1);
+        const inv = 1 - normP;
+
+        if (topCowl) {
+          topCowl.style.transform = `translateZ(65px) translateY(${inv * -48}px) rotateX(${inv * 26}deg)`;
+          topCowl.style.opacity = `${0.35 + normP * 0.65}`;
+        }
+        if (pivotLeft) {
+          pivotLeft.style.transform = `translateZ(50px) translateX(${inv * -42}px) rotateY(${inv * -35}deg)`;
+          pivotLeft.style.opacity = `${0.35 + normP * 0.65}`;
+        }
+        if (pivotRight) {
+          pivotRight.style.transform = `translateZ(50px) translateX(${inv * 42}px) rotateY(${inv * 35}deg)`;
+          pivotRight.style.opacity = `${0.35 + normP * 0.65}`;
+        }
+        if (canopyDome) {
+          canopyDome.style.transform = `translateZ(55px) translateY(${inv * -22}px) rotateX(${inv * 18}deg) scale(${0.9 + normP * 0.1})`;
+        }
+        if (chinGuard) {
+          chinGuard.style.transform = `translateZ(45px) translateY(${inv * 32}px)`;
+          chinGuard.style.opacity = `${0.35 + normP * 0.65}`;
+        }
+
+        // Glare sweep flash when visor components snap together
+        if (normP >= 0.95 && !sweepFired && sweepGlare && typeof gsap !== 'undefined') {
+          sweepFired = true;
+          gsap.fromTo(sweepGlare, 
+            { left: '-120%', opacity: 1 }, 
+            { left: '160%', opacity: 0, duration: 0.75, ease: 'power2.out' }
+          );
+        } else if (normP < 0.7) {
+          sweepFired = false;
+        }
+
+        // 2. Deliverable Pillars & Co-Founder Choreography (Progress 18% -> 100%)
+        if (p < 0.38) {
           if (activePillarIndex !== 0) switchPillar(0, false);
           if (activeFounderId !== 'luiz') switchFounder('luiz', false);
-        } else if (p >= 0.33 && p < 0.66) {
+        } else if (p >= 0.38 && p < 0.72) {
           if (activePillarIndex !== 1) switchPillar(1, false);
           if (activeFounderId !== 'vitor') switchFounder('vitor', false);
         } else {
@@ -258,7 +315,7 @@ function initLandoHeroScrollytelling() {
     });
   }
 
-  // 3D Tilt & Cursor Tracking with Smooth Lerp
+  // 3D Tilt & Cursor Tracking with Multi-Plane Stereoscopic Lerp
   if (stageBox) {
     let mouseX = 0;
     let mouseY = 0;
@@ -279,8 +336,8 @@ function initLandoHeroScrollytelling() {
 
       stageBox.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
 
-      if (canopyDome) {
-        canopyDome.style.transform = `translateZ(55px) translate3d(${currentX * 14}px, ${currentY * 8}px, 0) rotateY(${rotY * 0.6}deg) rotateX(${rotX * 0.6}deg)`;
+      if (visorAssemblyRig) {
+        visorAssemblyRig.style.transform = `translate3d(${currentX * 14}px, ${currentY * 8}px, 0) rotateY(${rotY * 0.5}deg) rotateX(${rotX * 0.5}deg)`;
       }
 
       if (visorGlare) {
@@ -350,6 +407,11 @@ function switchPillar(idx, syncFounder = true) {
   if (trackName) trackName.textContent = pData.circuitName;
   if (trackStatus) trackStatus.textContent = pData.circuitStatus;
 
+  // Update Three.js WebGL particle target color
+  if (pData.color && targetThreeColor) {
+    targetThreeColor.set(pData.color);
+  }
+
   // Auto switch founder associated with pillar if requested
   if (syncFounder) {
     if (pData.founder === 'luiz' || pData.founder === 'duo') {
@@ -363,6 +425,11 @@ function switchPillar(idx, syncFounder = true) {
 function switchFounder(founderId, syncPillar = true) {
   if (activeFounderId === founderId && !syncPillar) return;
   activeFounderId = founderId;
+
+  // Update Three.js WebGL target color
+  if (targetThreeColor) {
+    targetThreeColor.set(founderId === 'luiz' ? '#d2ff00' : '#ff6b00');
+  }
 
   // Update Buttons
   const btnLuiz = document.getElementById('btn-toggle-luiz');
@@ -378,14 +445,42 @@ function switchFounder(founderId, syncPillar = true) {
     }
   }
 
-  // Crossfade 3D Cards
+  // Crossfade 3D Cards with exact GSAP cubic-bezier easing
   const cardLuiz = document.getElementById('card-founder-luiz');
   const cardVitor = document.getElementById('card-founder-vitor');
   const stageGlow = document.getElementById('stage-3d-glow');
   const quickSwapLabel = document.getElementById('quick-swap-label');
+  const ledLeft = document.getElementById('pivot-led-left');
+  const ledRight = document.getElementById('pivot-led-right');
+
+  const cubicEase = "cubic-bezier(0.65, 0.05, 0, 1)";
 
   if (cardLuiz && cardVitor) {
     if (founderId === 'luiz') {
+      if (typeof gsap !== 'undefined') {
+        gsap.to(cardVitor, {
+          opacity: 0,
+          y: 20,
+          scale: 0.94,
+          duration: 0.65,
+          ease: cubicEase,
+          pointerEvents: 'none'
+        });
+        gsap.to(cardLuiz, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.65,
+          ease: cubicEase,
+          pointerEvents: 'auto'
+        });
+      } else {
+        cardVitor.classList.remove('is-active');
+        cardVitor.classList.add('is-hidden');
+        cardLuiz.classList.add('is-active');
+        cardLuiz.classList.remove('is-hidden');
+      }
+
       cardLuiz.classList.add('is-active');
       cardLuiz.classList.remove('is-hidden');
       cardVitor.classList.remove('is-active');
@@ -393,11 +488,37 @@ function switchFounder(founderId, syncPillar = true) {
 
       if (stageGlow) stageGlow.className = 'stage-3d-glow glow-luiz';
       if (quickSwapLabel) quickSwapLabel.textContent = 'VER VITOR (02)';
+      if (ledLeft) ledLeft.style.backgroundColor = 'var(--color--lime)';
+      if (ledRight) ledRight.style.backgroundColor = 'var(--color--lime)';
 
       if (syncPillar && activePillarIndex !== 0) {
         switchPillar(0, false);
       }
     } else {
+      if (typeof gsap !== 'undefined') {
+        gsap.to(cardLuiz, {
+          opacity: 0,
+          y: 20,
+          scale: 0.94,
+          duration: 0.65,
+          ease: cubicEase,
+          pointerEvents: 'none'
+        });
+        gsap.to(cardVitor, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.65,
+          ease: cubicEase,
+          pointerEvents: 'auto'
+        });
+      } else {
+        cardLuiz.classList.remove('is-active');
+        cardLuiz.classList.add('is-hidden');
+        cardVitor.classList.add('is-active');
+        cardVitor.classList.remove('is-hidden');
+      }
+
       cardVitor.classList.add('is-active');
       cardVitor.classList.remove('is-hidden');
       cardLuiz.classList.remove('is-active');
@@ -405,6 +526,8 @@ function switchFounder(founderId, syncPillar = true) {
 
       if (stageGlow) stageGlow.className = 'stage-3d-glow glow-vitor';
       if (quickSwapLabel) quickSwapLabel.textContent = 'VER LUIZ (01)';
+      if (ledLeft) ledLeft.style.backgroundColor = 'var(--color--orange)';
+      if (ledRight) ledRight.style.backgroundColor = 'var(--color--orange)';
 
       if (syncPillar && activePillarIndex !== 1) {
         switchPillar(1, false);
@@ -580,6 +703,46 @@ function initInteractiveChat() {
     chatSendBtn.addEventListener('click', handleSend);
     chatInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') handleSend();
+    });
+  }
+
+  // Hall of Fame Card 3: WhatsApp Simulator
+  const fameChatStream = document.getElementById('fame-chat-stream');
+  const simChips = document.querySelectorAll('.chat-sim-chip');
+  if (fameChatStream && simChips.length) {
+    const simReplies = {
+      'Quanto custa uma Landing Page?': 'Nossos projetos de alta performance começam com diagnóstico gratuito e escopo 100% sob medida. Desenvolvemos máquinas de conversão que se pagam rápido!',
+      'Qual o prazo de entrega?': 'Entregamos em média de 5 dias úteis a 2 semanas, com código bespoke sem templates, GSAP 3D e deploy global na Vercel Edge.',
+      'Quero falar com os fundadores!': 'Perfeito! Clique no botão de WhatsApp para conversar em tempo real com Luiz Gabriel e Vitor.'
+    };
+
+    simChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const query = chip.getAttribute('data-sim-text');
+        
+        // User bubble
+        const userDiv = document.createElement('div');
+        userDiv.className = 'bg-cyan-500/20 text-cyan-300 text-[10.5px] p-2 rounded-xl rounded-tr-none border border-cyan-400/30 font-sans leading-tight ml-auto max-w-[90%] text-right';
+        userDiv.textContent = query;
+        fameChatStream.appendChild(userDiv);
+        fameChatStream.scrollTop = fameChatStream.scrollHeight;
+
+        // Typing indicator
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'text-[9.5px] font-mono text-cyan-400/70 italic flex items-center space-x-1 py-1';
+        typingDiv.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping mr-1"></span><span>Digitando resposta...</span>';
+        fameChatStream.appendChild(typingDiv);
+        fameChatStream.scrollTop = fameChatStream.scrollHeight;
+
+        setTimeout(() => {
+          typingDiv.remove();
+          const botDiv = document.createElement('div');
+          botDiv.className = 'bg-zinc-800/80 text-zinc-200 text-[10.5px] p-2 rounded-xl rounded-tl-none border border-white/5 font-sans leading-tight';
+          botDiv.innerHTML = `<span class="font-bold text-cyan-400 block text-[9px] mb-0.5">VL TECH AI:</span>${simReplies[query] || 'Atendimento automatizado via WhatsApp Cloud API.'}`;
+          fameChatStream.appendChild(botDiv);
+          fameChatStream.scrollTop = fameChatStream.scrollHeight;
+        }, 550);
+      });
     });
   }
 }

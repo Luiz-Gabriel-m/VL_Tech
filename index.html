@@ -133,50 +133,101 @@
           <!-- Dynamic Volumetric Spotlight Glow (Plane -50px Z) -->
           <div class="stage-3d-glow glow-luiz" id="stage-3d-glow"></div>
 
-          <!-- Floating Glassmorphic Canopy Dome (Plane +55px Z) -->
-          <div class="floating-canopy-dome dome-theme-web" id="pillar-canopy-dome">
-            <div class="visor-reflection"></div>
-            <div class="visor-specular-glare" id="visor-glare"></div>
-
-            <!-- Micro Tech HUD tags -->
-            <span class="dome-hud-tag-left">SYS // 60FPS</span>
-            <span class="dome-hud-tag-right">VERCEL EDGE</span>
-
-            <!-- Layer 1: Web Dev -->
-            <div class="dome-content-layer active" data-layer-id="web">
-              <div class="flex items-center space-x-1.5 text-lime-400 font-mono text-[10px] tracking-widest font-bold uppercase mb-1">
-                <i data-lucide="code" class="w-3 h-3"></i>
-                <span>HIGH-PERFORMANCE WEB</span>
+          <!-- 3D FLOATING CANOPY / HELMET VISOR ASSEMBLY RIG (LANDO NORRIS F1 SCROLLYTELLING MECHANICS) -->
+          <div class="visor-assembly-rig" id="visor-assembly-rig">
+            
+            <!-- 1. Top Aerodynamic Cowl / Upper Shell (Exploded on entry, snaps down) -->
+            <div class="visor-component visor-top-cowl" id="visor-top-cowl">
+              <div class="cowl-surface-texture"></div>
+              <div class="cowl-vent-stripes">
+                <span class="aero-slit"></span>
+                <span class="aero-slit"></span>
+                <span class="aero-slit"></span>
               </div>
-              <span class="font-mona font-extrabold text-sm sm:text-base text-white text-center leading-tight">
-                Vercel Edge & GSAP 3D
-              </span>
-              <span class="text-[9px] font-mono text-zinc-400 mt-1">&lt; 0.8s Latency // 60 FPS</span>
+              <div class="cowl-hud-tag font-mono-tech">AERO-COWL // FORMULA-V</div>
             </div>
 
-            <!-- Layer 2: Social & Reels -->
-            <div class="dome-content-layer inactive" data-layer-id="social">
-              <div class="flex items-center space-x-1.5 text-orange-400 font-mono text-[10px] tracking-widest font-bold uppercase mb-1">
-                <i data-lucide="video" class="w-3 h-3"></i>
-                <span>INSTAGRAM & REELS</span>
+            <!-- 2. Mechanical Side Pivot Joints (Hinges sliding in from sides) -->
+            <div class="visor-component visor-pivot-joint pivot-left" id="visor-pivot-left">
+              <div class="pivot-bearing">
+                <div class="pivot-center-core"></div>
               </div>
-              <span class="font-mona font-extrabold text-sm sm:text-base text-white text-center leading-tight">
-                Direção Criativa Viral
-              </span>
-              <span class="text-[9px] font-mono text-zinc-400 mt-1">+850K Alcance // Design System</span>
+              <div class="pivot-status-led" id="pivot-led-left"></div>
+            </div>
+            
+            <div class="visor-component visor-pivot-joint pivot-right" id="visor-pivot-right">
+              <div class="pivot-bearing">
+                <div class="pivot-center-core"></div>
+              </div>
+              <div class="pivot-status-led" id="pivot-led-right"></div>
             </div>
 
-            <!-- Layer 3: AI Bot -->
-            <div class="dome-content-layer inactive" data-layer-id="ai">
-              <div class="flex items-center space-x-1.5 text-cyan-400 font-mono text-[10px] tracking-widest font-bold uppercase mb-1">
-                <i data-lucide="bot" class="w-3 h-3"></i>
-                <span>AUTONOMOUS AI AGENTS</span>
+            <!-- 3. Central Visor Canopy Shield (Multi-Service Display & Tint Reflection) -->
+            <div class="visor-component floating-canopy-dome dome-theme-web" id="pillar-canopy-dome">
+              <!-- Holographic Grid Overlay -->
+              <div class="visor-grid-overlay"></div>
+              <!-- Iridescent Visor Reflection -->
+              <div class="visor-reflection"></div>
+              <!-- Dynamic Specular Glare Reacting to Mouse -->
+              <div class="visor-specular-glare" id="visor-glare"></div>
+              <!-- High-Speed Glare Sweep on Assembly Lock -->
+              <div class="visor-assembly-sweep" id="visor-assembly-sweep"></div>
+
+              <!-- Micro Tech HUD tags -->
+              <span class="dome-hud-tag-left font-mono-tech">SYS // 60FPS</span>
+              <span class="dome-hud-tag-right font-mono-tech">VERCEL EDGE</span>
+
+              <!-- Layer 1: Web Dev -->
+              <div class="dome-content-layer active" data-layer-id="web">
+                <div class="flex items-center space-x-1.5 text-lime-400 font-mono text-[10px] tracking-widest font-bold uppercase mb-1">
+                  <i data-lucide="code" class="w-3 h-3"></i>
+                  <span>HIGH-PERFORMANCE WEB</span>
+                </div>
+                <span class="font-mona font-extrabold text-sm sm:text-base text-white text-center leading-tight">
+                  Vercel Edge & GSAP 3D
+                </span>
+                <span class="text-[9px] font-mono text-zinc-400 mt-1">&lt; 0.8s Latency // 60 FPS</span>
               </div>
-              <span class="font-mona font-extrabold text-sm sm:text-base text-white text-center leading-tight">
-                WhatsApp Cloud 24/7
-              </span>
-              <span class="text-[9px] font-mono text-zinc-400 mt-1">Zero Latência // CRM Sync</span>
+
+              <!-- Layer 2: Social & Reels -->
+              <div class="dome-content-layer inactive" data-layer-id="social">
+                <div class="flex items-center space-x-1.5 text-orange-400 font-mono text-[10px] tracking-widest font-bold uppercase mb-1">
+                  <i data-lucide="video" class="w-3 h-3"></i>
+                  <span>INSTAGRAM & REELS</span>
+                </div>
+                <span class="font-mona font-extrabold text-sm sm:text-base text-white text-center leading-tight">
+                  Direção Criativa Viral
+                </span>
+                <span class="text-[9px] font-mono text-zinc-400 mt-1">+850K Alcance // Design System</span>
+              </div>
+
+              <!-- Layer 3: AI Bot -->
+              <div class="dome-content-layer inactive" data-layer-id="ai">
+                <div class="flex items-center space-x-1.5 text-cyan-400 font-mono text-[10px] tracking-widest font-bold uppercase mb-1">
+                  <i data-lucide="bot" class="w-3 h-3"></i>
+                  <span>AUTONOMOUS AI AGENTS</span>
+                </div>
+                <span class="font-mona font-extrabold text-sm sm:text-base text-white text-center leading-tight">
+                  WhatsApp Cloud 24/7
+                </span>
+                <span class="text-[9px] font-mono text-zinc-400 mt-1">Zero Latência // CRM Sync</span>
+              </div>
+
+              <!-- HUD Reticle Brackets -->
+              <div class="visor-hud-reticle">
+                <span class="hud-corner top-left"></span>
+                <span class="hud-corner top-right"></span>
+                <span class="hud-corner bottom-left"></span>
+                <span class="hud-corner bottom-right"></span>
+              </div>
             </div>
+
+            <!-- 4. Lower Aerodynamic Chin Bracket (Snaps up into position) -->
+            <div class="visor-component visor-chin-guard" id="visor-chin-guard">
+              <span class="chin-lock-indicator"></span>
+              <span class="font-mono-tech text-[8px] text-zinc-400 tracking-wider">AERO LOCK // 100% CONVERGENCE</span>
+            </div>
+
           </div>
 
           <!-- Cutout Portraits 3D Multi-plane Container -->
@@ -362,90 +413,190 @@
   <!-- ========================================================================
        SEÇÃO DE SERVIÇOS & PILARES INTERATIVOS
        ======================================================================== -->
+  <!-- ========================================================================
+       HALL OF FAME // SERVIÇOS & ARTEFATOS DE ENGENHARIA (REPLACING HELMETS)
+       ======================================================================== -->
   <section id="servicos" class="relative py-28 px-4 sm:px-8 border-t border-white/10 bg-[#111112]">
     <div class="max-w-7xl mx-auto">
       
       <div class="text-center max-w-3xl mx-auto mb-20">
         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-lime-400 font-mono text-xs mb-4">
-          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-          <span>CORE PILLARS // NOSSOS MOTORES</span>
+          <i data-lucide="award" class="w-3.5 h-3.5"></i>
+          <span>HALL OF FAME // ARTEFATOS DE ENGENHARIA</span>
         </div>
         <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase">
-          Engenharia de Ponta.<br>
-          <span class="gradient-text-silver">Resultados Reais.</span>
+          Nossas Máquinas.<br>
+          <span class="gradient-text-lime text-glow-lime">Resultados Extremos.</span>
         </h2>
+        <p class="text-zinc-400 text-xs sm:text-sm mt-3 font-mono">
+          Substituindo capacetes de corrida por três motores de alta conversão. Teste os consoles interativos abaixo:
+        </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        <!-- Pillar 1: Web Dev -->
-        <div class="card-tilt-element glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-lime-400/50 transition-all duration-300">
+        <!-- Hall of Fame Card 1: Web Dev -->
+        <div class="card-tilt-element hall-of-fame-card theme-lime glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-lime-400/50 transition-all duration-300">
           <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-lime-400/10 border border-lime-400/30 flex items-center justify-center text-lime-400 group-hover:scale-110 transition-all">
-                <i data-lucide="code-2" class="w-6 h-6"></i>
-              </div>
-              <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-lime-300">01 // CODE</span>
+            <!-- Header Spec Telemetry -->
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/30 text-lime-400 font-bold">
+                HELMET SPEC 01 // ARCHITECTURE
+              </span>
+              <span class="font-mono text-[10px] text-zinc-500 uppercase">#D2FF00 LIME</span>
             </div>
+
+            <!-- Interactive Console: Code Sandbox & Speed Gauge -->
+            <div class="fame-console-preview bg-black/70 rounded-2xl border border-white/10 p-3.5 mb-6 overflow-hidden">
+              <div class="flex items-center justify-between pb-2 border-b border-white/10 mb-3 text-[11px] font-mono text-zinc-400">
+                <div class="flex items-center space-x-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                  <span class="text-zinc-300 ml-2">App.tsx</span>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-lime-400/20 text-lime-400 font-bold text-[9px] flex items-center">
+                  <i data-lucide="zap" class="w-2.5 h-2.5 mr-1"></i> 99 PageSpeed
+                </span>
+              </div>
+              <pre class="font-mono text-[10.5px] leading-relaxed text-zinc-300 overflow-x-auto"><span class="text-lime-400">await</span> gsap.timeline()
+  .<span class="text-cyan-400">to</span>(<span class="text-amber-300">"#visor-assembly"</span>, {
+    <span class="text-zinc-400">rotateX</span>: 0,
+    <span class="text-zinc-400">ease</span>: <span class="text-amber-300">"cubic-bezier(0.65, 0.05, 0, 1)"</span>
+  })
+  .<span class="text-cyan-400">to</span>(<span class="text-amber-300">".founder-luiz"</span>, { <span class="text-zinc-400">scale</span>: 1, <span class="text-zinc-400">opacity</span>: 1 });</pre>
+            </div>
+
             <h3 class="font-syne font-bold text-2xl text-white mb-2">High-Performance Web</h3>
             <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
-              Desenvolvimento sob medida sem construtores pesados. Animações fluidas a 60 FPS com GSAP 3 e deploy global na Vercel Edge.
+              Desenvolvimento bespoke sem templates lentos. Animações a 60 FPS com GSAP 3, WebGL Three.js e deploy global na Vercel Edge com latência sub-segundo.
             </p>
+            
             <ul class="space-y-2 mb-8 text-xs text-zinc-300">
-              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-lime-400 mr-2"></i> Latência &lt; 800ms Global</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-lime-400 mr-2"></i> GSAP ScrollTrigger Interativo</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-lime-400 mr-2"></i> Score 98-100 no Google PageSpeed</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-lime-400 mr-2"></i> Latência &lt; 800ms Global (Vercel Edge)</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-lime-400 mr-2"></i> GSAP 3 ScrollTrigger Scrollytelling</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-lime-400 mr-2"></i> Core Web Vitals Score 98-100 Garantido</li>
             </ul>
           </div>
           <a href="https://wa.me/5511999999999?text=Quero%20um%20site%20de%20alta%20performance." target="_blank" class="btn-lime-pill w-full text-center">
+            <i data-lucide="code" class="w-4 h-4"></i>
             <span>Desenvolver Meu Site</span>
           </a>
         </div>
 
-        <!-- Pillar 2: Social & Reels -->
-        <div class="card-tilt-element glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-orange-400/50 transition-all duration-300">
+        <!-- Hall of Fame Card 2: Social & Reels -->
+        <div class="card-tilt-element hall-of-fame-card theme-orange glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-orange-400/50 transition-all duration-300">
           <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-orange-400/10 border border-orange-400/30 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-all">
-                <i data-lucide="instagram" class="w-6 h-6"></i>
-              </div>
-              <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-orange-300">02 // SOCIAL</span>
+            <!-- Header Spec Telemetry -->
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs px-3 py-1 rounded-full bg-orange-400/10 border border-orange-400/30 text-orange-400 font-bold">
+                HELMET SPEC 02 // CREATIVE
+              </span>
+              <span class="font-mono text-[10px] text-zinc-500 uppercase">#FF6B00 ORANGE</span>
             </div>
+
+            <!-- Interactive Console: Glass Phone Feed & Sound Equalizer -->
+            <div class="fame-console-preview bg-black/70 rounded-2xl border border-white/10 p-3.5 mb-6 overflow-hidden">
+              <div class="flex items-center justify-between pb-2 border-b border-white/10 mb-3 text-[11px] font-mono text-zinc-400">
+                <span class="text-orange-400 font-bold flex items-center">
+                  <i data-lucide="video" class="w-3 h-3 mr-1"></i> REELS CINEMA 4K
+                </span>
+                <span class="text-zinc-400 text-[10px] font-mono">+850K ALCANCE</span>
+              </div>
+              <div class="relative h-20 bg-gradient-to-r from-zinc-900 to-zinc-950 rounded-xl flex items-center justify-between px-4 border border-white/5">
+                <div class="flex items-center space-x-3">
+                  <div class="w-9 h-9 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center border border-orange-500/30 shadow-[0_0_12px_rgba(255,107,0,0.3)]">
+                    <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-mona font-bold text-white">Retenção Neuro-Persuasiva</span>
+                    <span class="text-[9px] font-mono text-zinc-400">Sound Design & 60 FPS Cut</span>
+                  </div>
+                </div>
+                <!-- Animated Sound Wave Visualizer Bars -->
+                <div class="flex items-end space-x-1 h-6">
+                  <span class="sound-bar-elem h-3"></span>
+                  <span class="sound-bar-elem h-6"></span>
+                  <span class="sound-bar-elem h-4"></span>
+                  <span class="sound-bar-elem h-5"></span>
+                  <span class="sound-bar-elem h-2"></span>
+                </div>
+              </div>
+            </div>
+
             <h3 class="font-syne font-bold text-2xl text-white mb-2">Instagram & Reels Growth</h3>
             <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
-              Direção criativa completa para posicionar sua marca no feed. Reels com edição de cinema e roteiros neuro-persuasivos para retenção.
+              Direção criativa de cinema e narrativa de alto impacto no feed. Roteiros estruturados para retenção absoluta e posicionamento incontestável da sua marca.
             </p>
+            
             <ul class="space-y-2 mb-8 text-xs text-zinc-300">
-              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-orange-400 mr-2"></i> Edição de cinema e sound design</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-orange-400 mr-2"></i> Design System proprietário</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-orange-400 mr-2"></i> Ganchos testados para conversão</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-orange-400 mr-2"></i> Edição de cinema e color grading profissional</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-orange-400 mr-2"></i> Design System e identidade visual de feed</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-orange-400 mr-2"></i> Ganchos neuro-persuasivos para alta conversão</li>
             </ul>
           </div>
-          <a href="https://wa.me/5511999999999?text=Quero%20elevar%20meu%20Instagram." target="_blank" class="w-full py-3.5 rounded-full border border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-black font-mona font-bold text-xs uppercase tracking-wider text-center transition-all">
+          <a href="https://wa.me/5511999999999?text=Quero%20elevar%20meu%20Instagram." target="_blank" class="w-full py-3.5 rounded-full border border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-black font-mona font-bold text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center space-x-2">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
             <span>Posicionar Minha Marca</span>
           </a>
         </div>
 
-        <!-- Pillar 3: AI Chatbots -->
-        <div class="card-tilt-element glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-cyan-400/50 transition-all duration-300">
+        <!-- Hall of Fame Card 3: AI Chatbots -->
+        <div class="card-tilt-element hall-of-fame-card theme-cyan glass-panel-elevated p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-cyan-400/50 transition-all duration-300">
           <div>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-all">
-                <i data-lucide="bot" class="w-6 h-6"></i>
-              </div>
-              <span class="font-mono text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-300">03 // AI BOT</span>
+            <!-- Header Spec Telemetry -->
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-mono text-xs px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-400 font-bold">
+                HELMET SPEC 03 // NEURAL BOT
+              </span>
+              <span class="font-mono text-[10px] text-zinc-500 uppercase">#00F0FF CYAN</span>
             </div>
-            <h3 class="font-syne font-bold text-2xl text-white mb-2">Chatbots com IA 24/7</h3>
+
+            <!-- Interactive Console: Live WhatsApp Terminal Simulator -->
+            <div class="fame-console-preview bg-black/70 rounded-2xl border border-white/10 p-3 mb-6 overflow-hidden">
+              <div class="flex items-center justify-between pb-2 border-b border-white/10 mb-2.5 text-[11px] font-mono text-zinc-400">
+                <span class="text-cyan-400 font-bold flex items-center">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse mr-1.5 shadow-[0_0_6px_#00f0ff]"></span>
+                  WHATSAPP CLOUD API // ONLINE
+                </span>
+                <span class="text-zinc-500 text-[9px] font-mono">&lt; 1.5s REPLY</span>
+              </div>
+              
+              <!-- Chat Bubble Stream -->
+              <div class="space-y-2 mb-2.5 max-h-24 overflow-y-auto pr-1" id="fame-chat-stream">
+                <div class="bg-zinc-800/80 text-zinc-200 text-[10.5px] p-2 rounded-xl rounded-tl-none border border-white/5 font-sans leading-tight">
+                  <span class="font-bold text-cyan-400 block text-[9px] mb-0.5">VL TECH AI:</span>
+                  Olá! Identifiquei seu perfil. Como podemos acelerar seu negócio hoje?
+                </div>
+              </div>
+
+              <!-- Quick Interactive Simulator Chips -->
+              <div class="flex flex-wrap gap-1.5 pt-1 border-t border-white/5">
+                <button class="chat-sim-chip text-[9px] px-2 py-0.5 rounded-full bg-white/5 hover:bg-cyan-400/20 text-cyan-300 border border-white/10 transition-colors" data-sim-text="Quanto custa uma Landing Page?">
+                  💰 Quanto custa?
+                </button>
+                <button class="chat-sim-chip text-[9px] px-2 py-0.5 rounded-full bg-white/5 hover:bg-cyan-400/20 text-cyan-300 border border-white/10 transition-colors" data-sim-text="Qual o prazo de entrega?">
+                  ⏱️ Qual o prazo?
+                </button>
+                <button class="chat-sim-chip text-[9px] px-2 py-0.5 rounded-full bg-white/5 hover:bg-cyan-400/20 text-cyan-300 border border-white/10 transition-colors" data-sim-text="Quero falar com os fundadores!">
+                  🚀 Falar com sócios
+                </button>
+              </div>
+            </div>
+
+            <h3 class="font-syne font-bold text-2xl text-white mb-2">Chatbots Autônomos com IA 24/7</h3>
             <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6">
-              Agentes inteligentes conectados à API Oficial do WhatsApp e CRM. Atendimento contextual sem atrasos ou filas.
+              Agentes inteligentes conectados à API Oficial do WhatsApp e CRM. Atendimento contextual, qualificação automática de leads e zero tempo de espera.
             </p>
+            
             <ul class="space-y-2 mb-8 text-xs text-zinc-300">
-              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 mr-2"></i> WhatsApp Cloud API oficial</li>
-              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 mr-2"></i> Treinamento com dados da sua empresa</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 mr-2"></i> WhatsApp Cloud API oficial com selo verificado</li>
+              <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 mr-2"></i> Treinamento com a base de dados da sua empresa</li>
               <li class="flex items-center"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 mr-2"></i> Atendimento imediato em menos de 2s</li>
             </ul>
           </div>
-          <a href="https://wa.me/5511999999999?text=Quero%20automatizar%20o%20WhatsApp%20com%20IA." target="_blank" class="w-full py-3.5 rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black font-mona font-bold text-xs uppercase tracking-wider text-center transition-all">
+          <a href="https://wa.me/5511999999999?text=Quero%20automatizar%20o%20WhatsApp%20com%20IA." target="_blank" class="w-full py-3.5 rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black font-mona font-bold text-xs uppercase tracking-wider text-center transition-all flex items-center justify-center space-x-2">
+            <i data-lucide="bot" class="w-4 h-4"></i>
             <span>Implantar Agente de IA</span>
           </a>
         </div>

@@ -276,17 +276,168 @@ body {
   background: radial-gradient(circle, rgba(255, 107, 0, 0.22) 0%, rgba(255, 42, 84, 0.15) 50%, transparent 75%);
 }
 
-/* 3D Plane 2: Floating Glassmorphic Canopy Dome (+55px Z) */
-.floating-canopy-dome {
+/* ==========================================================================
+   3D PLANE 2: ARTICULATED VISOR / CANOPY ASSEMBLY RIG (+55px Z)
+   (Replicating Lando Norris F1 Visor Assembly Mechanics)
+   ========================================================================== */
+
+.visor-assembly-rig {
   position: absolute;
-  top: 5.5%;
-  width: 320px;
-  height: 180px;
+  top: 4.5%;
+  width: 330px;
+  height: 200px;
   z-index: 25;
-  border-radius: 145px 145px 32px 32px;
-  background: radial-gradient(circle at 50% 25%, rgba(244, 244, 237, 0.2) 0%, rgba(17, 17, 18, 0.88) 80%);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .visor-assembly-rig {
+    top: 6.5%;
+    width: 270px;
+    height: 165px;
+  }
+}
+
+.visor-component {
+  position: absolute;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  transition: transform 0.15s ease-out;
+}
+
+/* 1. Upper Aerodynamic Cowl (Top Shell) */
+.visor-top-cowl {
+  top: -18px;
+  width: 230px;
+  height: 34px;
+  border-radius: 9999px 9999px 8px 8px;
+  background: linear-gradient(180deg, #2a2d24 0%, #151617 100%);
+  border: 1.5px solid rgba(210, 255, 0, 0.4);
+  box-shadow: 0 -4px 18px rgba(210, 255, 0, 0.25), inset 0 2px 6px rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  transform: translateZ(65px);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .visor-top-cowl {
+    top: -14px;
+    width: 190px;
+    height: 28px;
+    transform: translateZ(45px);
+  }
+}
+
+.cowl-vent-stripes {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.aero-slit {
+  width: 14px;
+  height: 2.5px;
+  background: rgba(210, 255, 0, 0.6);
+  border-radius: 9999px;
+  box-shadow: 0 0 6px var(--color--lime);
+}
+
+.cowl-hud-tag {
+  font-size: 7.5px;
+  letter-spacing: 0.12em;
+  color: rgba(244, 244, 237, 0.6);
+  text-transform: uppercase;
+}
+
+/* 2. Mechanical Side Pivot Joints */
+.visor-pivot-joint {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2d3027 0%, #111112 85%);
+  border: 1.5px solid rgba(244, 244, 237, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 35;
+  transform: translateZ(50px);
+}
+
+.visor-pivot-joint.pivot-left {
+  left: -8px;
+  top: 42%;
+}
+
+.visor-pivot-joint.pivot-right {
+  right: -8px;
+  top: 42%;
+}
+
+@media (max-width: 768px) {
+  .visor-pivot-joint {
+    width: 26px;
+    height: 26px;
+    transform: translateZ(35px);
+  }
+  .visor-pivot-joint.pivot-left { left: -6px; }
+  .visor-pivot-joint.pivot-right { right: -6px; }
+}
+
+.pivot-bearing {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px dashed rgba(244, 244, 237, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pivot-center-core {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background-color: #3b3e34;
+  border: 1px solid rgba(210, 255, 0, 0.5);
+}
+
+.pivot-status-led {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color--lime);
+  box-shadow: 0 0 6px var(--color--lime);
+  animation: pulseLed 2s infinite ease-in-out;
+}
+
+@keyframes pulseLed {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* 3. Central Visor Canopy Dome / Shield (+55px Z) */
+.floating-canopy-dome {
+  position: relative;
+  width: 310px;
+  height: 175px;
+  z-index: 25;
+  border-radius: 145px 145px 34px 34px;
+  background: radial-gradient(circle at 50% 25%, rgba(244, 244, 237, 0.22) 0%, rgba(17, 17, 18, 0.9) 82%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(244, 244, 237, 0.35);
   box-shadow: 
     0 -10px 45px rgba(210, 255, 0, 0.28),
@@ -304,13 +455,13 @@ body {
               transform 0.15s ease-out;
   cursor: pointer;
   pointer-events: auto;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
   .floating-canopy-dome {
-    top: 7%;
-    width: 260px;
-    height: 145px;
+    width: 255px;
+    height: 142px;
     transform: translateZ(35px);
   }
 }
@@ -318,6 +469,101 @@ body {
 .floating-canopy-dome:hover {
   border-color: var(--color--lime);
   box-shadow: 0 -14px 60px rgba(210, 255, 0, 0.55);
+}
+
+/* Laser Grid Overlay on Visor Glass */
+.visor-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(244, 244, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 244, 237, 0.03) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(circle, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle, black 40%, transparent 80%);
+  pointer-events: none;
+}
+
+/* Glare Sweep Line on Assembly Lock */
+.visor-assembly-sweep {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(210, 255, 0, 0.35) 50%, rgba(255, 255, 255, 0.7) 75%, transparent 100%);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* HUD Reticle Brackets on 4 Corners */
+.visor-hud-reticle {
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(244, 244, 237, 0.3);
+}
+
+.hud-corner.top-left {
+  top: 0; left: 0;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+.hud-corner.top-right {
+  top: 0; right: 0;
+  border-top: 1.5px solid;
+  border-right: 1.5px solid;
+}
+.hud-corner.bottom-left {
+  bottom: 0; left: 0;
+  border-bottom: 1.5px solid;
+  border-left: 1.5px solid;
+}
+.hud-corner.bottom-right {
+  bottom: 0; right: 0;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+
+/* 4. Lower Chin Guard */
+.visor-chin-guard {
+  bottom: -15px;
+  width: 190px;
+  height: 24px;
+  border-radius: 6px 6px 14px 14px;
+  background: linear-gradient(180deg, #18191b 0%, #101011 100%);
+  border: 1px solid rgba(244, 244, 237, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  z-index: 30;
+  transform: translateZ(45px);
+}
+
+@media (max-width: 768px) {
+  .visor-chin-guard {
+    bottom: -12px;
+    width: 160px;
+    height: 20px;
+    transform: translateZ(30px);
+  }
+}
+
+.chin-lock-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color--lime);
+  box-shadow: 0 0 6px var(--color--lime);
 }
 
 /* Micro HUD Tags on Dome Edge */
@@ -853,4 +1099,95 @@ details summary::-webkit-details-marker {
   background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   HALL OF FAME // DELIVERABLES GRID (REPLACING HELMETS)
+   ========================================================================== */
+
+.hall-of-fame-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-default) var(--cubic-default),
+              border-color var(--duration-default) var(--cubic-default),
+              box-shadow var(--duration-default) var(--cubic-default);
+}
+
+.hall-of-fame-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.hall-of-fame-card.theme-lime::before {
+  background: linear-gradient(90deg, transparent, var(--color--lime), transparent);
+}
+
+.hall-of-fame-card.theme-orange::before {
+  background: linear-gradient(90deg, transparent, var(--color--orange), transparent);
+}
+
+.hall-of-fame-card.theme-cyan::before {
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+}
+
+.hall-of-fame-card.theme-lime:hover {
+  border-color: rgba(210, 255, 0, 0.55);
+  box-shadow: 0 15px 50px rgba(210, 255, 0, 0.18), inset 0 0 25px rgba(210, 255, 0, 0.05);
+}
+
+.hall-of-fame-card.theme-orange:hover {
+  border-color: rgba(255, 107, 0, 0.55);
+  box-shadow: 0 15px 50px rgba(255, 107, 0, 0.18), inset 0 0 25px rgba(255, 107, 0, 0.05);
+}
+
+.hall-of-fame-card.theme-cyan:hover {
+  border-color: rgba(0, 240, 255, 0.55);
+  box-shadow: 0 15px 50px rgba(0, 240, 255, 0.18), inset 0 0 25px rgba(0, 240, 255, 0.05);
+}
+
+/* Console preview container */
+.fame-console-preview {
+  position: relative;
+  background-color: rgba(10, 10, 11, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Sound Wave Equalizer animation for Reels card */
+.sound-bar-elem {
+  width: 3.5px;
+  background-color: var(--color--orange);
+  border-radius: 9999px;
+  box-shadow: 0 0 6px var(--color--orange);
+  animation: soundBarPulse 1.2s infinite ease-in-out alternate;
+}
+
+.sound-bar-elem:nth-child(1) { animation-delay: 0.1s; }
+.sound-bar-elem:nth-child(2) { animation-delay: 0.3s; }
+.sound-bar-elem:nth-child(3) { animation-delay: 0.2s; }
+.sound-bar-elem:nth-child(4) { animation-delay: 0.4s; }
+.sound-bar-elem:nth-child(5) { animation-delay: 0.15s; }
+
+@keyframes soundBarPulse {
+  0% { transform: scaleY(0.35); opacity: 0.6; }
+  100% { transform: scaleY(1.15); opacity: 1; }
+}
+
+/* Chat Simulator Chip */
+.chat-sim-chip {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.chat-sim-chip:hover {
+  background-color: rgba(0, 240, 255, 0.2);
+  border-color: var(--neon-cyan);
+  transform: translateY(-1px);
 }
